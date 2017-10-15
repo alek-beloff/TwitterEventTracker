@@ -17,13 +17,6 @@ class MyStreamListener(tweepy.StreamListener):
         json_data = json.loads(raw_data)
         post_id = db.twitter_data.insert_one(json_data).inserted_id
         print(post_id)
-    #def on_status(self, status):
-        #print(status.text)
-        #insert = {
-        #    "Title" : status.text
-        #}
-        #post_id = db.col.insert_one(insert).inserted_id
-        #print(post_id)
     def on_error(self, status_code):
         if status_code == 420:
             # returning False in on_data disconnects the stream
@@ -31,12 +24,12 @@ class MyStreamListener(tweepy.StreamListener):
 
 myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
-myStream.filter(locations=[-4.50,55.79,-3.97,55.93], async=True)
+#myStream.filter(locations=[-4.50,55.79,-3.97,55.93], async=True)
 
-#print(db.col.count())
-filter = "Scotland"
+print(db.twitter_data.count())
+filter = "life"
 regx = re.compile(".*"+filter+".*", re.IGNORECASE)
-posts = db.col.find({"Title": regx})
+posts = db.twitter_data.find({"text": regx})
 for post in posts:
     print(post)
-#print(posts.count())
+print(posts.count())
