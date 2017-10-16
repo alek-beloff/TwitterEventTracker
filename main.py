@@ -8,7 +8,10 @@ auth.set_access_token('438291047-AWXl0LpNxZzjhdFA3FH7AJHtmLRK52QDJiKzq5Wz', 'o3k
 
 api = tweepy.API(auth)
 
-client = MongoClient("mongodb://TeamProject:JoemonJoseForever@twitterdb-shard-00-00-qc9br.mongodb.net:27017,twitterdb-shard-00-01-qc9br.mongodb.net:27017,twitterdb-shard-00-02-qc9br.mongodb.net:27017/test?ssl=true&replicaSet=TwitterDB-shard-0&authSource=admin")
+try:
+    client = MongoClient("mongodb://TeamProject:JoemonJoseForever@twitterdb-shard-00-00-qc9br.mongodb.net:27017,twitterdb-shard-00-01-qc9br.mongodb.net:27017,twitterdb-shard-00-02-qc9br.mongodb.net:27017/test?ssl=true&replicaSet=TwitterDB-shard-0&authSource=admin")
+except ValueError:
+    print(ValueError)
 db = client.twitterdb
 
 class MyStreamListener(tweepy.StreamListener):
@@ -27,9 +30,9 @@ myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 #myStream.filter(locations=[-4.50,55.79,-3.97,55.93], async=True)
 
 print(db.twitter_data.count())
-filter = "life"
+filter = "is"
 regx = re.compile(".*"+filter+".*", re.IGNORECASE)
 posts = db.twitter_data.find({"text": regx})
 for post in posts:
-    print(post)
+    print(post["place"]["bounding_box"]["type"])
 print(posts.count())
