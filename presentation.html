@@ -11763,14 +11763,16 @@ div#notebook {
 <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">sender</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">&quot;mongodb://TeamProject:&quot;</span><span class="o">+</span><span class="n">password</span><span class="o">.</span><span class="n">value</span><span class="o">+</span><span class="s2">&quot;@twitterdb-shard-00-00-qc9br.mongodb.net:27017,twitterdb-shard-00-01-qc9br.mongodb.net:27017,twitterdb-shard-00-02-qc9br.mongodb.net:27017/test?ssl=true&amp;replicaSet=TwitterDB-shard-0&amp;authSource=admin&quot;</span><span class="p">)</span>
+        <span class="k">global</span> <span class="n">db</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">twitterdb</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connection established successfully&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">client</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">login_btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">login_btn</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>
+
 <span class="n">password</span><span class="o">.</span><span class="n">on_submit</span><span class="p">(</span><span class="n">login</span><span class="p">)</span>  
-<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">twitterdb</span>
+
 <span class="n">display</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">login_btn</span><span class="p">)</span>
 </pre></div>
 
