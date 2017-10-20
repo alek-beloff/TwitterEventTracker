@@ -12946,7 +12946,7 @@ div#notebook {
 
 <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[(</span><span class="mf">55.79</span><span class="o">+</span><span class="mf">55.93</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">4.50</span><span class="o">-</span><span class="mf">3.97</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
 
-<span class="nb">filter</span> <span class="o">=</span> <span class="s2">&quot;Scotland&quot;</span>
+<span class="nb">filter</span> <span class="o">=</span> <span class="s2">&quot;is&quot;</span>
 <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;.*&quot;</span><span class="o">+</span><span class="nb">filter</span><span class="o">+</span><span class="s2">&quot;.*&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 <span class="n">posts</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">twitter_data</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">regx</span><span class="p">})</span>
 <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
