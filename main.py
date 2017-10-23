@@ -1,4 +1,5 @@
 import tweepy
+import numpy as np
 from pymongo import MongoClient
 import re
 import json
@@ -29,10 +30,18 @@ myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
 #myStream.filter(locations=[-4.50,55.79,-3.97,55.93], async=True)
 
-print(db.twitter_data.count())
-filter = "is"
-regx = re.compile(".*"+filter+".*", re.IGNORECASE)
-posts = db.twitter_data.find({"text": regx})
-for post in posts:
-    print(post["place"]["bounding_box"]["type"])
-print(posts.count())
+localized_tweets = list(tweepy.Cursor(api.search,
+    q="university",
+    geocode="55.85,-4.25,10km",
+    #since="2017-10-13",
+    #until="2017-10-21",
+    lang="en").items())
+print(len(localized_tweets))
+
+#print(db.twitter_data.count())
+#filter = "is"
+#regx = re.compile(".*"+filter+".*", re.IGNORECASE)
+#posts = db.twitter_data.find({"text": regx})
+#for post in posts:
+#    print(post["place"]["bounding_box"]["type"])
+#print(posts.count())
