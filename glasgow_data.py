@@ -15,8 +15,8 @@ auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 api = tweepy.API(auth)
 
 
- client = MongoClient()
- db = client.twitterdb
+client = MongoClient()
+db = client.twitterdb
 def search_tweets():
     for tweet in tweepy.Cursor(api.search,geocode="55.86515,-4.25763,10km",lang= "en",include_entities=True).items():
         #no geo info
