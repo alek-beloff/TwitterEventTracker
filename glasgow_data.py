@@ -23,27 +23,19 @@ def search_tweets():
         if(tweet.user.geo_enabled == False):
 
             print(tweet._json)
-            insert = {
-                tweet._json
-            }
-            db.hist_glasgow_nogeolocation.insert_one(insert).inserted_id
+            db.hist_glasgow_nogeolocation.insert_one(tweet._json).inserted_id
 
         #exact coord
         if (tweet.user.geo_enabled == True and tweet.coordinates != None):
             print(tweet._json)
-            insert = {
-                tweet._json
-            }
-            db.hist_glasgow_geo_coordinates.insert_one(insert).inserted_id
+            db.hist_glasgow_geo_coordinates.insert_one(tweet._json).inserted_id
 
         ##bounding box
         if (tweet.user.geo_enabled == True and tweet.place != None and tweet.coordinates == None):
             # print(decodeData(tweet))
             print(tweet.place.bounding_box.coordinates)
-            insert = {
-                tweet._json
-            }
-            db.hist_glasgow_bounding_box.insert_one(insert).inserted_id
+
+            db.hist_glasgow_bounding_box.insert_one(tweet._json).inserted_id
 
 
 
