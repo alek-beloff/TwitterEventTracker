@@ -23,19 +23,33 @@ def search_tweets():
         if(tweet.user.geo_enabled == False):
 
             print(tweet._json)
-            db.hist_glasgow_nogeolocation.insert_one(tweet._json).inserted_id
+            a = tweet._json
+            a["_id"] = a["id"]
+            try:
+                db.hist_glasgow_nogeolocation.insert_one(a).inserted_id
+            except:
+                print("duplicated!")
 
         #exact coord
         if (tweet.user.geo_enabled == True and tweet.coordinates != None):
             print(tweet._json)
-            db.hist_glasgow_geo_coordinates.insert_one(tweet._json).inserted_id
+            a = tweet._json
+            a["_id"] = a["id"]
+            try:
+                db.hist_glasgow_geo_coordinates.insert_one(a).inserted_id
+            except:
+                print("duplicated!")
 
         ##bounding box
         if (tweet.user.geo_enabled == True and tweet.place != None and tweet.coordinates == None):
             # print(decodeData(tweet))
             print(tweet.place.bounding_box.coordinates)
-
-            db.hist_glasgow_bounding_box.insert_one(tweet._json).inserted_id
+            a = tweet._json
+            a["_id"] = a["id"]
+            try:
+                db.hist_glasgow_bounding_box.insert_one(tweet._json).inserted_id
+            except:
+                print("duplicated!")
 
 
 
