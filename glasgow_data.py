@@ -1,6 +1,6 @@
 import tweepy
 from pymongo import MongoClient
-
+import time
 # Get a cursor object
 
 CONSUMER_KEY = 'cwuOhOSiMHaqSjUsyfYRVltuE'
@@ -18,7 +18,7 @@ api = tweepy.API(auth)
 client = MongoClient()
 db = client.twitterdb
 def search_tweets():
-    for tweet in tweepy.Cursor(api.search,geocode="55.86515,-4.25763,10km",lang= "en",include_entities=True).items():
+    for tweet in tweepy.Cursor(api.search, geocode="55.86515,-4.25763,10km", lang="en", include_entities=True).items():
         #no geo info
         if(tweet.user.geo_enabled == False):
 
@@ -99,6 +99,19 @@ def decodeData(status):
         "id_str": status.id_str
     }
 
-search_tweets()
+global t
+t = 0
+while(True):
 
+    ##run the program for 200 times
+    if t >= 200:
+        break
+
+    try:
+        search_tweets()
+    except:
+        print(t)
+        ## sleep for 15mins if error
+        time.sleep(60 * 15)
+        t += 1
 
