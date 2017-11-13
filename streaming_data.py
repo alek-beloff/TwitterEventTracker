@@ -1,5 +1,6 @@
 import tweepy
 from pymongo import MongoClient
+import time
 
 
 CONSUMER_KEY = 'cwuOhOSiMHaqSjUsyfYRVltuE'
@@ -65,9 +66,24 @@ myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener())
 
 
 ##filter for tweets from NYC area
-myStream.filter(locations=[-74.284596, 40.502686, -72.474598, 41.336975], async=True)
 # myStream.filter(locations=[80.10,12.90,80.33,13.24], async=True)
 
 # myStream.filter(track=['syria%paris'])
 #myStream.filter(locations=[-89.99,-89.99,89.99,89.99], async=True)
 # myStream.sample()
+
+global t
+t = 0
+while(True):
+
+    ##run the program for 20 times
+    if t >= 20:
+        break
+
+    try:
+        myStream.filter(locations=[-74.284596, 40.502686, -72.474598, 41.336975], async=True)
+    except:
+        print(t)
+        ## sleep for 15mins if error
+        time.sleep(60 * 15)
+        t += 1
