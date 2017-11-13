@@ -60,8 +60,7 @@ class MyStreamListener(tweepy.StreamListener):
             print('limit')
             return False
 
-i=0
-j=0
+
 myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener())
 
 
