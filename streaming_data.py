@@ -37,7 +37,7 @@ class MyStreamListener(tweepy.StreamListener):
             a = status._json
             a["_id"] = a["id"]
             try:
-                db.stream_NYC_boundingBox.insert_one(status._json).inserted_id
+                db.stream_NYC_boundingBox.insert_one(a).inserted_id
             except:
                 print("duplicated!")
         if (status.coordinates != None):
