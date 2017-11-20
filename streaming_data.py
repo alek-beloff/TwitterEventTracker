@@ -4,13 +4,20 @@ import time
 import sys
 
 
-CONSUMER_KEY = 'cwuOhOSiMHaqSjUsyfYRVltuE'
-CONSUMER_SECRET = 'JBZWaPi3ldDHgMo6NPr8MbRKEU2iHBW7xVzL094HjsoX33K4eJ'
-OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO'
-OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg'
+CONSUMER_KEY = 'cwuOhOSiMHaqSjUsyfYRVltuE', 'q4utaFepGhE5OjujyoruBOoQg'
+CONSUMER_SECRET = 'JBZWaPi3ldDHgMo6NPr8MbRKEU2iHBW7xVzL094HjsoX33K4eJ', 'D5K3P5URNUTxKnoVnggiUFsNapuNLOSx5cB7Zh6Y4HhpBhhtNy'
+OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO', '438291047-AWXl0LpNxZzjhdFA3FH7AJHtmLRK52QDJiKzq5Wz'
+OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg', 'o3kZKFF2s9ctgVpfDVRRpMbg6BMsGUIFWlJm9wSysKyyY'
 
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(OAUTH_TOKEN,OAUTH_TOKEN_SECRET)
+idx = 0
+if len(sys.argv) == 1:
+    exit('use terminal to run it')
+if sys.argv[1] == 'nonloc':
+    idx = 0
+else: idx = 1
+
+auth = tweepy.OAuthHandler(CONSUMER_KEY[idx], CONSUMER_SECRET[idx])
+auth.set_access_token(OAUTH_TOKEN[idx],OAUTH_TOKEN_SECRET[idx])
 
 # auth = tweepy.OAuthHandler('q4utaFepGhE5OjujyoruBOoQg', 'D5K3P5URNUTxKnoVnggiUFsNapuNLOSx5cB7Zh6Y4HhpBhhtNy')
 # auth.set_access_token('438291047-AWXl0LpNxZzjhdFA3FH7AJHtmLRK52QDJiKzq5Wz',
@@ -123,8 +130,7 @@ def Filter (myStream):
             ## sleep for 15mins if error
             time.sleep(60 * 15)
             t += 1
-if len(sys.argv) == 1:
-    exit('use terminal to run it')
+
 if sys.argv[1] == 'nonloc':
     print("streaming nonloc")
     Sample(myStream,["en"])
