@@ -1,35 +1,18 @@
 from localisation_core import *
+import sys
 
-import json
-from nltk.corpus import stopwords
+if len(sys.argv) > 1 and sys.argv[1] != 'testBB':
+    exit('argument is incorrect')
 
-stopWords = set(stopwords.words('english'))
-print('Read unlocalised tweets')
-nonloc_values = [Tweet(json.loads(line)["_id"]["$numberLong"],
-                       json.loads(line)["text"],
-                       json.loads(line)["created_at"],
-                       stopWords)
-                 for line
-                 in tqdm(open("actual_data/nogeo.json"))
-                 if json.loads(line)["lang"] == "en"
-                 and json.loads(line)["in_reply_to_user_id"] == None
-                 and json.loads(line)["in_reply_to_status_id"] == None
-                 and json.loads(line)["retweeted"] == False]
+if len(sys.argv) > 1 and sys.argv[1] == 'testBB':
+    bbox_values = getBbox()
+    print("and number of bbox is %d" % len(bbox_values))
 
-print('Read bbox tweets')
-bbox_values = [Tweet(json.loads(line)["_id"]["$numberLong"],
-                     json.loads(line)["text"],
-                     json.loads(line)["created_at"],
-                     stopWords,
-                     bounding_box=json.loads(line)["place"]["bounding_box"]["coordinates"][0])
-               for line
-               in tqdm(open("actual_data/bbox.json"))
-               if json.loads(line)["lang"] == "en"
-               and json.loads(line)["in_reply_to_user_id"] == None
-               and json.loads(line)["in_reply_to_status_id"] == None
-               and json.loads(line)["retweeted"] == False]
-
+nonloc_values = []
+if len(sys.argv) == 1:
+    nonloc_values = getUnloc()
 print("Data loaded. Number of nonloc is %d" % len(nonloc_values))
+bbox_values = getBbox()
 print("and number of bbox is %d" % len(bbox_values))
 
 tweet_content = [value.text for value in tqdm(bbox_values + nonloc_values)]
@@ -39,7 +22,6 @@ flatten_content = [item for sublist in tweet_content for item in sublist]
 content_dict = {w: '' for w in flatten_content}
 # enumerate without duplicates
 content_enum = {w: idx for idx, w in enumerate(content_dict)}
-
 print("Dictionary is generated. Number of words %d" % len(content_enum))
 
 conjunction_matrix = np.zeros((len(bbox_values + nonloc_values), len(content_enum)), dtype=int)
@@ -54,18 +36,13 @@ print("Matrix is calculated. Shape is", conjunction_matrix.shape)
 #make a threshold for similarity
 threshold = 0.9
 
-#new_col = localise_to_bbox(nonloc_values, bbox_values, threshold, conjunction_matrix, d)
-testList = []
-for test in bbox_values[:10]:
-    result = localise_to_bbox([test], [x for x in bbox_values if x != test], threshold, conjunction_matrix, d)
-    print (list(test.bounding_box))
-    if (len(result) > 0):
-        print (list(result[0].bounding_box))
-    print()
-#for test in testList:
+if len(sys.argv) > 1 and sys.argv[1] == 'testBB':
+    if len(sys.argv) > 2:
+        qualityTesting(bbox_values, sys.argv[2], threshold=threshold, conjunction_matrix=conjunction_matrix, d=d)
+    else:
+        #default parameter
+        qualityTesting(bbox_values, 10, threshold=threshold, conjunction_matrix=conjunction_matrix, d=d)
 
-#r = len(testList)
-#r = r*100.0/10.0
-#print("%f percent is correct"%r)
-
-#print("We could recognize %f per cent tweets"%(len(new_col)*100.0/len(nonloc_values)))
+if len(sys.argv) == 1:
+    new_col = localise_to_bbox(nonloc_values, bbox_values, threshold, conjunction_matrix, d)
+    print("We could recognize %f per cent tweets" % (len(new_col) * 100.0 / len(nonloc_values)))

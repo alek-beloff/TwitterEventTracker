@@ -5,6 +5,8 @@ from datetime import timedelta
 import numpy as np
 from dateutil import parser
 import re
+import json
+from nltk.corpus import stopwords
 
 def RemoveStopWords(stopWords, text):
     return [w for w in text if w not in stopWords and len(w)>2]
@@ -20,6 +22,51 @@ class Tweet:
         else:
             self.bounding_box = bounding_box
         self.coordinates = coordinates
+
+def getUnloc():
+    stopWords = set(stopwords.words('english'))
+
+    print('Read unlocalised tweets')
+    return [Tweet(json.loads(line)["_id"]["$numberLong"],
+                           json.loads(line)["text"],
+                           json.loads(line)["created_at"],
+                           stopWords)
+                     for line
+                     in tqdm(open("actual_data/nogeo.json"))
+                     if json.loads(line)["lang"] == "en"
+                     and json.loads(line)["in_reply_to_user_id"] == None
+                     and json.loads(line)["in_reply_to_status_id"] == None
+                     and json.loads(line)["retweeted"] == False]
+def getBbox():
+    stopWords = set(stopwords.words('english'))
+
+    print('Read bbox tweets')
+    return [Tweet(json.loads(line)["_id"]["$numberLong"],
+                         json.loads(line)["text"],
+                         json.loads(line)["created_at"],
+                         stopWords,
+                         bounding_box=json.loads(line)["place"]["bounding_box"]["coordinates"][0])
+                   for line
+                   in tqdm(open("actual_data/bbox.json"))
+                   if json.loads(line)["lang"] == "en"
+                   and json.loads(line)["in_reply_to_user_id"] == None
+                   and json.loads(line)["in_reply_to_status_id"] == None
+                   and json.loads(line)["retweeted"] == False]
+
+def qualityTesting(bbox_values, number, threshold, conjunction_matrix, d):
+    amount_of_localized = 0
+    amount_of_correct = 0
+    print("Quality test is running currently...")
+    for test in tqdm(bbox_values[:int(number)]):
+        result = localise_to_bbox([test], [x for x in bbox_values if x != test], threshold, conjunction_matrix, d)
+        if (len(result) > 0):
+            amount_of_localized+=1
+            if list(test.bounding_box) == list(result[0].bounding_box):
+                amount_of_correct+=1
+    l = amount_of_localized*100.0/float(number)
+    c = amount_of_correct*100.0/amount_of_localized
+    print("Amount of localized tweets is %f percent of the number given"%l)
+    print("Amount of correctly localized tweets is %f percent of those which are localized"%c)
 
 def localise_to_bbox(unloc, loc, threshold, conj_m, d):
 
