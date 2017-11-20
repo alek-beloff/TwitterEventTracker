@@ -54,6 +54,18 @@ print("Matrix is calculated. Shape is", conjunction_matrix.shape)
 #make a threshold for similarity
 threshold = 0.9
 
-new_col = localise_to_bbox(nonloc_values, bbox_values, threshold, conjunction_matrix, d)
+#new_col = localise_to_bbox(nonloc_values, bbox_values, threshold, conjunction_matrix, d)
+testList = []
+for test in bbox_values[:10]:
+    result = localise_to_bbox([test], [x for x in bbox_values if x != test], threshold, conjunction_matrix, d)
+    print (list(test.bounding_box))
+    if (len(result) > 0):
+        print (list(result[0].bounding_box))
+    print()
+#for test in testList:
 
-print("We could recognize %f per cent tweets"%(len(new_col)*100.0/len(nonloc_values)))
+#r = len(testList)
+#r = r*100.0/10.0
+#print("%f percent is correct"%r)
+
+#print("We could recognize %f per cent tweets"%(len(new_col)*100.0/len(nonloc_values)))
