@@ -4,6 +4,7 @@ import json
 from nltk.corpus import stopwords
 
 stopWords = set(stopwords.words('english'))
+print('Read unlocalised tweets')
 nonloc_values = [Tweet(json.loads(line)["_id"]["$numberLong"],
                        json.loads(line)["text"],
                        json.loads(line)["created_at"],
@@ -15,6 +16,7 @@ nonloc_values = [Tweet(json.loads(line)["_id"]["$numberLong"],
                  and json.loads(line)["in_reply_to_status_id"] == None
                  and json.loads(line)["retweeted"] == False]
 
+print('Read bbox tweets')
 bbox_values = [Tweet(json.loads(line)["_id"]["$numberLong"],
                      json.loads(line)["text"],
                      json.loads(line)["created_at"],

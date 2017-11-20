@@ -45,7 +45,7 @@ def localise_to_bbox(unloc, loc, threshold, conj_m, d):
         for idx in cs2:
             bbox = bbox_dict[idx[0]]
 
-            tdelta = (bbox.time - tweet.time) / timedelta(minutes=1)
+            tdelta = (bbox.time - tweet.time).total_seconds() / timedelta(minutes=1).total_seconds()
             # another threshold by time. Not more than a week
             if tdelta > 60 * 24 * 7: continue
 
