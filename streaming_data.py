@@ -33,8 +33,11 @@ class MyStreamListener(tweepy.StreamListener):
 
         ##bounding box data
 
+        locations = ['Glasgow', 'Manhattan', 'Staten Island', 'Queens', 'Floral Park', 'Yaphank', 'Brooklyn',
+                     'Dobbs Ferry', 'North Massapequa', 'Bronx']
 
         if (status.coordinates == None and status.place!=None):
+            if (status.place.name not in locations): return True
             print(status.place.name, status.place.bounding_box.coordinates[0][::2])
             #print (status.place.name)
             a = status._json
@@ -44,7 +47,7 @@ class MyStreamListener(tweepy.StreamListener):
             except:
                 print("duplicated!")
         elif (status.coordinates != None):
-
+            if (status.place.name not in locations): return True
             #print('coordinates', status._json)
             a = status._json
             a["_id"] = a["id"]
@@ -56,6 +59,7 @@ class MyStreamListener(tweepy.StreamListener):
             a = status._json
             a["_id"] = a["id"]
             try:
+                print("added non-localised data")
                 db.stream_nongeo_coordinates.insert_one(a).inserted_id
             except:
                 print("duplicated!")
