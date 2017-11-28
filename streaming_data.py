@@ -14,13 +14,13 @@ if len(sys.argv) == 1:
     exit('use terminal to run it')
 elif sys.argv[1] == 'nonloc':
     idx = 0
-elif sys.argv[1] == loc and sys.argv[2].lower() == 'ny':
+elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'ny':
     idx = 1
-elif sys.argv[1] == loc and sys.argv[2].lower() == 'lo':
+elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'lo':
     idx = 2
-elif sys.argv[1] == loc and sys.argv[2].lower() == 'gla':
+elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'gla':
     idx = 3
-elif sys.argv[1] == loc and sys.argv[2].lower() == 'chi':
+elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'chi':
     idx = 4
 else:
     exit('wrong terminal variables')
