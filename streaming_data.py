@@ -38,95 +38,95 @@ api = tweepy.API(auth)
 client = MongoClient()
 db = client.twitterdb
 
+def checkLO(status):
+    locations = ['Royal Albert Hall', 'Brent', 'Lambeth', 'London', 'Islington', 'Kensington', 'Enfield', 'Eltham', 
+        'Walthamstow', 'Merton', 'Paddington', 'Camden Town', 'Wandsworth', 'Crayford', 'Hackney', 'Richmond', 'Greenwich', 'Barnet',
+        'East Ham', 'West Ham', 'Hillingdon', 'Staines-upon-Thames', 'Hammersmith', 'South East', 'Water Rats', 'Poplar', 'Sutton', 'Stratford',
+        'Wembley Stadium', 'Hackney', 'Camberwell', 'Bexley', 'Ealing', 'Romford', 'Kingston upon Thames', 'East', 'Harrow', 'The O2']
+    if (status.coordinates == None and status.place!=None):
+        if (status.place.name not in locations): return True
+        print(status.place.name, status.place.bounding_box.coordinates[0][::2])
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_boundingBoxLO.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+    elif (status.coordinates != None):
+        if (status.place.name not in locations): return True
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_geo_coordinatesLO.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+
+def checkNY(status):
+    locations = ['Manhattan', 'Staten Island', 'Queens', 'Floral Park', 'Yaphank', 'Brooklyn',
+                 'Dobbs Ferry', 'North Massapequa', 'Bronx', 'New York']
+    if (status.coordinates == None and status.place!=None):
+        if (status.place.name not in locations): return True
+        print(status.place.name, status.place.bounding_box.coordinates[0][::2])
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_boundingBoxNY.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+    elif (status.coordinates != None):
+        if (status.place.name not in locations): return True
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_geo_coordinatesNY.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+
+def checkGLA(status):
+    locations = ['Glasgow']
+    if (status.coordinates == None and status.place!=None):
+        if (status.place.name not in locations): return True
+        print(status.place.name, status.place.bounding_box.coordinates[0][::2])
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_boundingBoxGLA.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+    elif (status.coordinates != None):
+        if (status.place.name not in locations): return True
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_geo_coordinatesGLA.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+
+def checkCHI(status):
+    locations = ['Chicago', 'Illinois', 'Indiana', 'Michigan']
+    if (status.coordinates == None and status.place!=None):
+        if (status.place.name not in locations): return True
+        print(status.place.name, status.place.bounding_box.coordinates[0][::2])
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_boundingBoxCHI.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
+    elif (status.coordinates != None):
+        if (status.place.name not in locations): return True
+        a = status._json
+        a["_id"] = a["id"]
+        try:
+            db.stream_geo_coordinatesCHI.insert_one(a).inserted_id
+        except:
+            print("duplicated!")
 
 class MyStreamListener(tweepy.StreamListener):
-    def checkLO(status):
-        locations = ['Royal Albert Hall', 'Brent', 'Lambeth', 'London', 'Islington', 'Kensington', 'Enfield', 'Eltham', 
-            'Walthamstow', 'Merton', 'Paddington', 'Camden Town', 'Wandsworth', 'Crayford', 'Hackney', 'Richmond', 'Greenwich', 'Barnet',
-            'East Ham', 'West Ham', 'Hillingdon', 'Staines-upon-Thames', 'Hammersmith', 'South East', 'Water Rats', 'Poplar', 'Sutton', 'Stratford',
-            'Wembley Stadium', 'Hackney', 'Camberwell', 'Bexley', 'Ealing', 'Romford', 'Kingston upon Thames', 'East', 'Harrow', 'The O2']
-        if (status.coordinates == None and status.place!=None):
-            if (status.place.name not in locations): return True
-            print(status.place.name, status.place.bounding_box.coordinates[0][::2])
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_boundingBoxLO.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-        elif (status.coordinates != None):
-            if (status.place.name not in locations): return True
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_geo_coordinatesLO.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-
-    def checkNY(status):
-        locations = ['Manhattan', 'Staten Island', 'Queens', 'Floral Park', 'Yaphank', 'Brooklyn',
-                     'Dobbs Ferry', 'North Massapequa', 'Bronx', 'New York']
-        if (status.coordinates == None and status.place!=None):
-            if (status.place.name not in locations): return True
-            print(status.place.name, status.place.bounding_box.coordinates[0][::2])
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_boundingBoxNY.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-        elif (status.coordinates != None):
-            if (status.place.name not in locations): return True
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_geo_coordinatesNY.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-
-    def checkGLA(status):
-        locations = ['Glasgow']
-        if (status.coordinates == None and status.place!=None):
-            if (status.place.name not in locations): return True
-            print(status.place.name, status.place.bounding_box.coordinates[0][::2])
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_boundingBoxGLA.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-        elif (status.coordinates != None):
-            if (status.place.name not in locations): return True
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_geo_coordinatesGLA.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-
-    def checkCHI(status):
-        locations = ['Chicago', 'Illinois', 'Indiana', 'Michigan']
-        if (status.coordinates == None and status.place!=None):
-            if (status.place.name not in locations): return True
-            print(status.place.name, status.place.bounding_box.coordinates[0][::2])
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_boundingBoxCHI.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
-        elif (status.coordinates != None):
-            if (status.place.name not in locations): return True
-            a = status._json
-            a["_id"] = a["id"]
-            try:
-                db.stream_geo_coordinatesCHI.insert_one(a).inserted_id
-            except:
-                print("duplicated!")
 
     def on_status(self, status):
-
         if (status.coordinates == None and status.place == None):
+            print("world")
             a = status._json
             a["_id"] = a["id"]
             try:
@@ -134,13 +134,14 @@ class MyStreamListener(tweepy.StreamListener):
                 db.stream_nongeo_coordinates.insert_one(a).inserted_id
             except:
                 print("duplicated!")
-        else:
-            if sys.argv[1] == 'loc' and sys.argv[2].lower() == 'ny':
+        elif sys.argv[1] == 'loc' and sys.argv[2] == 'ny':
                 checkNY(status)
-            if sys.argv[1] == 'loc' and sys.argv[2].lower() == 'lo':
+        elif sys.argv[1] == 'loc' and sys.argv[2] == 'lo':
                 checkLO(status)
-            if sys.argv[1] == 'loc' and sys.argv[2].lower() == 'gla':
+        elif sys.argv[1] == 'loc' and sys.argv[2] == 'gla':
                 checkGLA(status)
+        elif sys.argv[1] == 'loc' and sys.argv[2] == 'chi':
+                checkCHI(status)
         return True
 
     def on_error(self, status_code):
