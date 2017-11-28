@@ -83,19 +83,13 @@ def checkNY(status):
             print("duplicated!")
 
 def checkGLA(status):
-    print('3')
-    locations = ['Glasgow']
     if (status.coordinates == None and status.place!=None):
-        if (status.place.name not in locations): return True
         print(status.place.name, status.place.bounding_box.coordinates[0][::2])
         a = status._json
         a["_id"] = a["id"]
-        print('4')
         try:
-            print('5')
             db.stream_boundingBoxGLA.insert_one(a).inserted_id
         except:
-            print('6')
             print("duplicated!")
     elif (status.coordinates != None):
         if (status.place.name not in locations): return True
@@ -129,14 +123,11 @@ def checkCHI(status):
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        print('1')
         if (status.coordinates == None and status.place == None):
-            print("world")
             a = status._json
             a["_id"] = a["id"]
             try:
-                ng = db.stream_nongeo_coordinates.insert_one(a).inserted_id
-                print(ng)
+                db.stream_nongeo_coordinates.insert_one(a).inserted_id
             except:
                 print("duplicated!")
         elif sys.argv[1] == 'loc' and sys.argv[2] == 'ny':
