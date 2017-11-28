@@ -135,8 +135,8 @@ class MyStreamListener(tweepy.StreamListener):
             a = status._json
             a["_id"] = a["id"]
             try:
-                print("added non-localised data")
-                db.stream_nongeo_coordinates.insert_one(a).inserted_id
+                ng = db.stream_nongeo_coordinates.insert_one(a).inserted_id
+                print(ng)
             except:
                 print("duplicated!")
         elif sys.argv[1] == 'loc' and sys.argv[2] == 'ny':
