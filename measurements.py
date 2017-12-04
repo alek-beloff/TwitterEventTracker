@@ -40,6 +40,9 @@ def averageWordDistribution ():
 
 	print("getting tweets from database")
 	for tweet in tqdm(cursor):
+		if tweet['user']['utc_offset'] == None: 
+			print('have none!')
+			continue
 		print((parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset'])).time())
 		i+=1
 		if i > 2:
