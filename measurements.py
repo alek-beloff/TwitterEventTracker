@@ -22,7 +22,7 @@ def averageWorldDistribution ():
    	tzone_dict = {w: 0 for w, tz in tweets}
 
    	print('made a dictionary. Now counting tweets by time zones')
-   	for tweet in tqdm(tweets):
+   	for tweet, val in tqdm(tweets):
    		tzone_dict[tweet] += 1
 
    	for zone, value in tzone_dict.items():
