@@ -44,7 +44,7 @@ def averageWordDistribution ():
 		if tweet['user']['utc_offset'] == None: 
 			print('have none!')
 			continue
-		tweets.append((parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset'])).time().total_seconds()/600) #10 minute intervals
+		tweets.append((parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset'])).timestamp()/600) #10 minute intervals
 	
 	time_dict = {w: 0 for w in tweets}
 	print('made a dictionary. Now counting tweets by time chops')
