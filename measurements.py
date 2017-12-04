@@ -10,7 +10,7 @@ def averageWorldDistribution ():
 	cursor = unloc.find({},{'created_at': 1})
 	tweets = []
 
-	for tweet in cursor:
+	for tweet in tqdm(cursor):
    		tweets.append(tweet)
 
 averageWorldDistribution()
