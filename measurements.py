@@ -15,7 +15,8 @@ def averageWorldDistribution ():
 	print("getting tweets from database")
 	for tweet in tqdm(cursor):
 		print(tweet)
-		tweets.append(tweet['time_zone'])
+		if 'time_zone' in tweet:
+			tweets.append(tweet['time_zone'])
    		
    	tzone_dict = {w: 0 for w in tweets}
 
