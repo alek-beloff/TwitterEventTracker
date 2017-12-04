@@ -4,7 +4,7 @@ import numpy as np
 from tqdm import tqdm
 from dateutil import parser
 import json
-from datetime import timedelta, tzinfo, datetime
+from datetime import timedelta, datetime
 
 def timeZoneDistribution ():
 	client = MongoClient()
@@ -31,7 +31,7 @@ def timeZoneDistribution ():
 		print(float(zone)/(60*60), value, tzone2_dict[zone])
 
 def stamp(time):
-	return (time - datetime(1970, 1, 1, tzinfo=time_zone.utc)).total_seconds()
+	return (time - datetime(1970, 1, 1)).total_seconds()
 
 def averageWordDistribution ():
 	client = MongoClient()
