@@ -15,7 +15,7 @@ def averageWorldDistribution ():
 
 	print("getting tweets from database")
 	for tweet in tqdm(cursor):
-		print tweet#(json.dumps(json.loads(tweet), indent=4, sort_keys=True))
+		print (json.dumps(tweet, indent=4, sort_keys=True))
 		tweets.append(tweet['time_zone'])
    		
    	tzone_dict = {w: 0 for w in tweets}
