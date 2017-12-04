@@ -4,8 +4,9 @@ import numpy as np
 from tqdm import tqdm
 from dateutil import parser
 import json
+from datetime import timedelta
 
-def averageWorldDistribution ():
+def timeZoneDistribution ():
 	client = MongoClient()
 	unloc = client.twitterdb.stream_nongeo_coordinates
 	
@@ -26,10 +27,43 @@ def averageWorldDistribution ():
    		tzone_dict[tweet] += 1
 
    	for zone, value in tzone_dict.items():
+   		if zone == None: continue
    		print(float(zone)/(60*60), value, tzone2_dict[zone])
 
+def averageWordDistribution ():
+	client = MongoClient()
+	unloc = client.twitterdb.stream_nongeo_coordinates
+	
+	cursor = unloc.find({},{ 'user.utc_offset': 1, 'created_at': 1 })
+	tweets = []
+	i=0
+
+	print("getting tweets from database")
+	for tweet in tqdm(cursor):
+		print(parser.parse(str(tweet['created_at'])) - timedelta(seconds=tweet['user']['utc_offset']).total_seconds())
+		i+=1
+		if i > 2:
+			return
 
 
 
 
-averageWorldDistribution()
+
+
+
+
+
+
+
+
+
+averageWordDistribution()
+
+
+
+
+
+
+
+
+
