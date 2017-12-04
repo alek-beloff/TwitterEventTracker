@@ -13,15 +13,17 @@ def averageWorldDistribution ():
 	times = []
 
 	i = 0
+	j = 0
 
 	print("getting tweets from database")
 	for tweet in tqdm(cursor):
    		tweets.append(tweet)
    		#time = parser.parse(str(tweet['created_at']))
-   		print(str(tweet['created_at'])[20:24])
-   		i += 1
-   		if i==1000:
-   			return
+   		if str(tweet['created_at'])[20:25] == '+0000':
+   			i+=1
+   		else:
+   			j+=1
+   		print(i, j)
 
 
 
