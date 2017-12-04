@@ -7,29 +7,29 @@ import json
 from datetime import timedelta
 from datetime import datetime
 
-def timeZoneDistribution ():
-	client = MongoClient()
-	unloc = client.twitterdb.stream_nongeo_coordinates
+# def timeZoneDistribution ():
+# 	client = MongoClient()
+# 	unloc = client.twitterdb.stream_nongeo_coordinates
 	
-	cursor = unloc.find({},{ 'user.utc_offset': 1, 'user.time_zone': 1 })
-	tweets = []
-	times = []
+# 	cursor = unloc.find({},{ 'user.utc_offset': 1, 'user.time_zone': 1 })
+# 	tweets = []
+# 	times = []
 
-	print("getting tweets from database")
-	for tweet in tqdm(cursor):
-		#print (json.dumps(tweet, indent=4, sort_keys=True))
-		tweets.append((tweet['user']['utc_offset'], tweet['user']['time_zone']))
+# 	print("getting tweets from database")
+# 	for tweet in tqdm(cursor):
+# 		#print (json.dumps(tweet, indent=4, sort_keys=True))
+# 		tweets.append((tweet['user']['utc_offset'], tweet['user']['time_zone']))
    		
-   	tzone2_dict = {w:tz for w,tz in tweets}
-   	tzone_dict = {w:0 for w,tz in tweets}
+#    	tzone2_dict = {w:tz for w,tz in tweets}
+#    	tzone_dict = {w:0 for w,tz in tweets}
 
-   	print('made a dictionary. Now counting tweets by time zones')
-   	for tweet, val in tqdm(tweets):
-   		tzone_dict[tweet] += 1
+#    	print('made a dictionary. Now counting tweets by time zones')
+#    	for tweet, val in tqdm(tweets):
+#    		tzone_dict[tweet] += 1
 
-   	for zone, value in tzone_dict.items():
-   		if zone == None: continue
-   		print(float(zone)/(60*60), value, tzone2_dict[zone])
+#    	for zone, value in tzone_dict.items():
+#    		if zone == None: continue
+#    		print(float(zone)/(60*60), value, tzone2_dict[zone])
 
 def averageWordDistribution ():
 	client = MongoClient()
