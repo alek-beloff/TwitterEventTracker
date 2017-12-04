@@ -40,7 +40,7 @@ def averageWordDistribution ():
 
 	print("getting tweets from database")
 	for tweet in tqdm(cursor):
-		print(parser.parse(str(tweet['created_at'])) - timedelta(seconds=tweet['user']['utc_offset']).total_seconds())
+		print(parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset']).time())
 		i+=1
 		if i > 2:
 			return
