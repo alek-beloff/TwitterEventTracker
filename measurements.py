@@ -9,20 +9,20 @@ def averageWorldDistribution ():
 	client = MongoClient()
 	unloc = client.twitterdb.stream_nongeo_coordinates
 	
-	cursor = unloc.find({})#,{'time_zone': 1})
+	cursor = unloc.find({},{'user': 1})
 	tweets = []
 	times = []
 
 	print("getting tweets from database")
 	for tweet in tqdm(cursor):
-		print (json.dumps(tweet, indent=4, sort_keys=True))
-		tweets.append(tweet['time_zone'])
+		#print (json.dumps(tweet, indent=4, sort_keys=True))
+		tweets.append(tweet['user']['time_zone'])
    		
    	tzone_dict = {w: 0 for w in tweets}
 
    	print('made a dictionary. Now counting tweets by time zones')
    	for tweet in tqdm(tweets):
-   		tzone_dict[tweet['time_zone']] += 1
+   		tzone_dict[tweet['user']['time_zone']] += 1
 
    	for zone in tzone_dict:
    		print(zone)
