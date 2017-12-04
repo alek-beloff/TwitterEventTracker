@@ -5,6 +5,7 @@ from tqdm import tqdm
 from dateutil import parser
 import json
 from datetime import timedelta
+from datetime import datetime
 
 def timeZoneDistribution ():
 	client = MongoClient()
@@ -43,10 +44,17 @@ def averageWordDistribution ():
 		if tweet['user']['utc_offset'] == None: 
 			print('have none!')
 			continue
-		print((parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset'])).time())
-		i+=1
-		if i > 2:
-			return
+		tweets.append((parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset'])).total_seconds()/600) #10 minute intervals
+	
+	time_dict = {w: 0 for w in tweets}
+	print('made a dictionary. Now counting tweets by time chops')
+   	for tweet in tqdm(tweets):
+   		time_dict[tweet] += 1
+
+   	for chop, count in tzone_dict.items():
+   		if chop == None: continue
+   		print(datetime.fromtimestamp(chop), count, tzone2_dict[zone])
+
 
 
 
