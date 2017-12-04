@@ -9,7 +9,7 @@ def averageWorldDistribution ():
 	client = MongoClient()
 	unloc = client.twitterdb.stream_nongeo_coordinates
 	
-	cursor = unloc.find({},{'user': {'utc_offset': 1 } })
+	cursor = unloc.find({},{ 'user.utc_offset': 1 })
 	tweets = []
 	times = []
 
