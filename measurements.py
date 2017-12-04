@@ -55,7 +55,7 @@ def averageWordDistribution ():
 
 	for chop, count in time_dict.items():
 		if chop == None: continue
-		print(datetime.fromtimestamp(chop), count, tzone2_dict[zone])
+		print(datetime.fromtimestamp(chop), count)
 
 
 
