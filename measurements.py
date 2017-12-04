@@ -24,7 +24,7 @@ def averageWorldDistribution ():
    	for tweet in tqdm(tweets):
    		tzone_dict[tweet] += 1
 
-   	for zone, value in tzone_dict:
+   	for zone, value in tzone_dict.items():
    		print(zone, value)
 
 
