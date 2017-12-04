@@ -31,7 +31,7 @@ def timeZoneDistribution ():
 		print(float(zone)/(60*60), value, tzone2_dict[zone])
 
 def stamp(time):
-	return (time.replace(tzinfo=None) - datetime(1970, 1, 1).replace(tzinfo=None)).total_seconds()
+	return int((time.replace(tzinfo=None) - datetime(1970, 1, 1).replace(tzinfo=None)).total_seconds())
 
 def averageWordDistribution ():
 	client = MongoClient()
