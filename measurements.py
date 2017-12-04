@@ -2,6 +2,7 @@ import sys
 from pymongo import MongoClient
 import numpy as np
 from tqdm import tqdm
+from dateutil import parser
 
 def averageWorldDistribution ():
 	client = MongoClient()
