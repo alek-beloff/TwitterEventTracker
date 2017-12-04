@@ -51,9 +51,9 @@ def averageWordDistribution ():
 	for tweet in tqdm(tweets):
    		time_dict[tweet] += 1
 
-   	for chop, count in tzone_dict.items():
-   		if chop == None: continue
-   		print(datetime.fromtimestamp(chop), count, tzone2_dict[zone])
+	for chop, count in tzone_dict.items():
+		if chop == None: continue
+		print(datetime.fromtimestamp(chop), count, tzone2_dict[zone])
 
 
 
