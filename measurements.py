@@ -9,6 +9,7 @@ def averageWorldDistribution ():
 	
 	tweets = unloc.find({},{'created_at': 1})
 
+	print(len(tweets))
 	print(tweets[0])
 
 averageWorldDistribution()
