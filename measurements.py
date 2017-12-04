@@ -20,7 +20,7 @@ def averageWorldDistribution ():
    		time = parser.parse(str(tweet['created_at']))
    		print (tweet['created_at'], time)
    		i += 1
-   		if i==10:
+   		if i==1000:
    			return
 
 
