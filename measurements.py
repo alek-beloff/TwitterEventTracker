@@ -9,7 +9,8 @@ def averageWorldDistribution ():
 	
 	tweets = unloc.find({},{'created_at': 1})
 
-	print(len(tweets))
-	print(tweets[0])
+	for i in np.arange(1000) {
+   		printjson(tweets.next());
+	}
 
 averageWorldDistribution()
