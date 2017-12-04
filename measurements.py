@@ -10,7 +10,7 @@ def averageWorldDistribution ():
 	cursor = unloc.find({},{'created_at': 1})
 	tweets = []
 
-	while cursor.hasNext():
-   		tweets.append(cursor.next())
+	for tweet in cursor:
+   		tweets.append(tweet)
 
 averageWorldDistribution()
