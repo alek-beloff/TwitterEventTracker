@@ -25,7 +25,7 @@ def averageWorldDistribution ():
    		tzone_dict[tweet] += 1
 
    	for zone, value in tzone_dict.items():
-   		print(zone, value)
+   		print(float(zone)/(24*60), value)
 
 
 
