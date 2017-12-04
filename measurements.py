@@ -4,8 +4,7 @@ import numpy as np
 from tqdm import tqdm
 from dateutil import parser
 import json
-from datetime import timedelta, tzinfo, time_zone
-from datetime import datetime
+from datetime import timedelta, tzinfo, datetime, timezone
 
 def timeZoneDistribution ():
 	client = MongoClient()
@@ -54,7 +53,7 @@ def averageWordDistribution ():
 	for tweet in tqdm(tweets):
    		time_dict[tweet] += 1
 
-	for chop, count in tzone_dict.items():
+	for chop, count in time_dict.items():
 		if chop == None: continue
 		print(datetime.fromtimestamp(chop), count, tzone2_dict[zone])
 
