@@ -31,6 +31,9 @@ def timeZoneDistribution ():
 		if zone == None: continue
 		print(float(zone)/(60*60), value, tzone2_dict[zone])
 
+def stamp(time):
+	return (time - datetime(1970, 1, 1, tzinfo=timezone.utc)).total_seconds()
+
 def averageWordDistribution ():
 	client = MongoClient()
 	unloc = client.twitterdb.stream_nongeo_coordinates
@@ -44,7 +47,7 @@ def averageWordDistribution ():
 		if tweet['user']['utc_offset'] == None: 
 			print('have none!')
 			continue
-		tweets.append((parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset'])).timestamp()/600) #10 minute intervals
+		tweets.append(stamp(parser.parse(str(tweet['created_at'])) + timedelta(seconds=tweet['user']['utc_offset']))/600) #10 minute intervals
 	
 	time_dict = {w: 0 for w in tweets}
 	print('made a dictionary. Now counting tweets by time chops')
