@@ -1,16 +1,16 @@
 import sys
 from pymongo import MongoClient
 import numpy as np
-import tqdm
+from tqdm import tqdm
 
 def averageWorldDistribution ():
 	client = MongoClient()
 	unloc = client.twitterdb.stream_nongeo_coordinates
 	
-	tweets = unloc.find({},{'created_at': 1})
+	cursor = unloc.find({},{'created_at': 1})
+	tweets = []
 
-	for i in np.arange(1000) {
-   		printjson(tweets.next());
-	}
+	for i in tqdm(np.arange(1000)):
+   		tweets.append(cursor.next())
 
 averageWorldDistribution()
