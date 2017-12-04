@@ -4,7 +4,7 @@ import numpy as np
 from tqdm import tqdm
 from dateutil import parser
 import json
-from datetime import timedelta
+from datetime import timedelta, tzinfo, timezone
 from datetime import datetime
 
 def timeZoneDistribution ():
