@@ -70,7 +70,7 @@ def checkNY(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_boundingBoxNY.insert_one(a).inserted_id
+            print(db.stream_boundingBoxNY.insert_one(a).inserted_id)
         except:
             print("duplicated!")
     elif (status.coordinates != None):
@@ -132,14 +132,14 @@ class MyStreamListener(tweepy.StreamListener):
                 db.stream_nongeo_coordinates.insert_one(a).inserted_id
             except:
                 print("duplicated!")
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'ny':
+        elif sys.argv[1].lower() == 'loc' and sys.argv[2].lower() == 'ny':
                 checkNY(status)
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'lo':
+        elif sys.argv[1].lower() == 'loc' and sys.argv[2].lower() == 'lo':
                 checkLO(status)
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'gla':
+        elif sys.argv[1].lower() == 'loc' and sys.argv[2].lower() == 'gla':
                 print('2')
                 checkGLA(status)
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'chi':
+        elif sys.argv[1].lower() == 'loc' and sys.argv[2].lower() == 'chi':
                 checkCHI(status)
         return True
 

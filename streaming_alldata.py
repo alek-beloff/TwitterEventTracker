@@ -59,7 +59,7 @@ def checkLO(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_boundingBoxLO.insert_one(a).inserted_id
+            db.stream_boundingBoxLO.insert_one(a)
             i = i + 1
             db.count_check_boundingBoxLO.insert_one(
                 {"tweet_count": i, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -69,7 +69,7 @@ def checkLO(status):
             try:
                 db.full_data.insert_one(a).inserted_id
             except:
-                db.duplicate_data.insert_one(a).inserted_id
+                db.duplicate_data.insert_one(a)
                 k = k + 1
                 db.count_check_duplicate_data.insert_one(
                     {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -85,7 +85,7 @@ def checkLO(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_geo_coordinatesLO.insert_one(a).inserted_id
+            db.stream_geo_coordinatesLO.insert_one(a)
             j = j + 1
             db.count_check_geo_coordinatesLO.insert_one(
                 {"tweet_count": j, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -95,7 +95,7 @@ def checkLO(status):
             try:
                 db.full_data.insert_one(a).inserted_id
             except:
-                db.duplicate_data.insert_one(a).inserted_id
+                db.duplicate_data.insert_one(a)
                 k = k + 1
                 db.count_check_duplicate_data.insert_one(
                     {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -119,21 +119,21 @@ def checkNY(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_boundingBoxNY.insert_one(a).inserted_id
+            print(db.stream_boundingBoxNY.insert_one(a).inserted_id, " - bounding boxed")
             i = i + 1
             db.count_check_boundingBoxNY.insert_one(
-                {"tweet_count": i, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
+                {"tweet_count": i, "tweet_created_at": a["created_at"], "tweet_time": d.datetime.now(),
                  "tweet_day": d.datetime.now().day, "tweet_month": d.datetime.now().month,
                  "tweet_hour": d.datetime.now().hour, "tweet_minute": d.datetime.now().minute,
                  "tweet_weekday": d.datetime.now().isoweekday()})
 
             try:
-                db.full_data.insert_one(a).inserted_id
+                print(db.full_data.insert_one(a).inserted_id, " - full data")
             except:
-                db.duplicate_data.insert_one(a).inserted_id
+                print(db.duplicate_data.insert_one(a).inserted_id, " - duplicate data")
                 k = k + 1
                 db.count_check_duplicate_data.insert_one(
-                    {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
+                    {"tweet_count": k, "tweet_created_at": a["created_at"], "tweet_time": d.datetime.now(),
                      "tweet_day": d.datetime.now().day, "tweet_month": d.datetime.now().month,
                      "tweet_hour": d.datetime.now().hour, "tweet_minute": d.datetime.now().minute,
                      "tweet_weekday": d.datetime.now().isoweekday()})
@@ -145,7 +145,7 @@ def checkNY(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_geo_coordinatesNY.insert_one(a).inserted_id
+            print(db.stream_geo_coordinatesNY.insert_one(a).inserted_id, " - geo coordinates")
             j = j + 1
             db.count_check_geo_coordinatesNY.insert_one(
                 {"tweet_count": j, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -153,9 +153,9 @@ def checkNY(status):
                  "tweet_hour": d.datetime.now().hour, "tweet_minute": d.datetime.now().minute,
                  "tweet_weekday": d.datetime.now().isoweekday()})
             try:
-                db.full_data.insert_one(a).inserted_id
+                print(db.full_data.insert_one(a).inserted_id, " - full data")
             except:
-                db.duplicate_data.insert_one(a).inserted_id
+                print(db.duplicate_data.insert_one(a).inserted_id, " - duplicate data")
                 k = k + 1
                 db.count_check_duplicate_data.insert_one(
                     {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -178,7 +178,7 @@ def checkGLA(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_boundingBoxGLA.insert_one(a).inserted_id
+            db.stream_boundingBoxGLA.insert_one(a)
             i = i + 1
             db.count_check_boundingBoxGLA.insert_one(
                 {"tweet_count": i, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -188,7 +188,7 @@ def checkGLA(status):
             try:
                 db.full_data.insert_one(a).inserted_id
             except:
-                db.duplicate_data.insert_one(a).inserted_id
+                db.duplicate_data.insert_one(a)
                 k = k + 1
                 db.count_check_duplicate_data.insert_one(
                     {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -203,7 +203,7 @@ def checkGLA(status):
         a = status._json
         a["_id"] = a["id"]
         try:
-            db.stream_geo_coordinatesGLA.insert_one(a).inserted_id
+            db.stream_geo_coordinatesGLA.insert_one(a)
             j = j + 1
             db.count_check_geo_coordinatesGLA.insert_one(
                 {"tweet_count": j, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -213,7 +213,7 @@ def checkGLA(status):
             try:
                 db.full_data.insert_one(a).inserted_id
             except:
-                db.duplicate_data.insert_one(a).inserted_id
+                db.duplicate_data.insert_one(a)
                 k = k + 1
                 db.count_check_duplicate_data.insert_one(
                     {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -291,7 +291,7 @@ class MyStreamListener(tweepy.StreamListener):
             a = status._json
             a["_id"] = a["id"]
             try:
-                db.stream_nongeo_coordinates.insert_one(a).inserted_id
+                db.stream_nongeo_coordinates.insert_one(a)
                 i = i + 1
                 db.count_check_nongeo_coordinates.insert_one(
                     {"tweet_count": i, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -301,7 +301,7 @@ class MyStreamListener(tweepy.StreamListener):
                 try:
                     db.full_data.insert_one(a).inserted_id
                 except:
-                    db.duplicate_data.insert_one(a).inserted_id
+                    db.duplicate_data.insert_one(a)
                     k = k + 1
                     db.count_check_duplicate_data.insert_one(
                         {"tweet_count": k, "tweet_created_at": a.created_at, "tweet_time": d.datetime.now(),
@@ -311,14 +311,13 @@ class MyStreamListener(tweepy.StreamListener):
 
             except:
                 print("duplicated!")
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'ny':
+        elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'ny':
             checkNY(status)
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'lo':
+        elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'lo':
             checkLO(status)
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'gla':
-            print('2')
+        elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'gla':
             checkGLA(status)
-        elif sys.argv[1] == 'loc' and sys.argv[2] == 'chi':
+        elif sys.argv[1] == 'loc' and sys.argv[2].lower() == 'chi':
             checkCHI(status)
         return True
 
