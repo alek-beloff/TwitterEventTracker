@@ -8,6 +8,7 @@ import re
 import json
 from nltk.corpus import stopwords
 from lshash import lshash
+from scipy.optimize import minimize
 
 def RemoveStopWords(stopWords, text):
     return [w for w in text if w not in stopWords and len(w)>2]
@@ -73,13 +74,13 @@ def getGeo():
                    and json.loads(line)["in_reply_to_status_id"] == None
                    and json.loads(line)["retweeted"] == False]
 
-def qualityTesting(bbox_values, number, threshold, conjunction_matrix, d):
+def qualityTesting(bbox_values, number, threshold, alpha, conjunction_matrix, d):
     amount_of_localized = 0
     amount_of_correct = 0
     print("Quality test is running currently...")
     for test in tqdm(bbox_values[:int(number)]):
         old_bbox = test.bounding_box
-        result = localise_to_bbox([test], [x for x in bbox_values if x != test], threshold, conjunction_matrix, d)
+        result = localise_to_bbox([test], [x for x in bbox_values if x != test], threshold, alpha, conjunction_matrix, d)
         if (len(result) > 0):
             amount_of_localized+=1
             if list(old_bbox) == list(result[0].bounding_box):
@@ -128,7 +129,7 @@ def geoTesting(exact_values, number, threshold, conjunction_matrix, d):
     print("Amount of localized tweets is %f percent of the number given"%l)
     print("Amount of correctly localized tweets (within 100 meters) is %f percent of those which are localized"%c)
 
-def localise_to_bbox(unloc, loc, threshold, conj_m, d):
+def localise_to_bbox(unloc, loc, threshold, alpha, conj_m, d):
 
     new_col = []
 
@@ -160,7 +161,7 @@ def localise_to_bbox(unloc, loc, threshold, conj_m, d):
             boxes.append(bbox.bounding_box)
         x0 = np.sum([x[0][0] * (1 / x[1] + 1 / x[2]) for x in points])
         y0 = np.sum([x[0][1] * (1 / x[1] + 1 / x[2]) for x in points])
-        m0 = np.sum([1 / x[1] + 1 / x[2] for x in points])
+        m0 = np.sum([alpha / x[1] + (1 - alpha) / x[2] for x in points])
         coord_res = Point([x0 / m0, y0 / m0])
         for box in boxes:
             pol = Polygon(box)

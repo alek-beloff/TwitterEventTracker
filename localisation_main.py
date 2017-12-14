@@ -1,7 +1,7 @@
 from localisation_core import *
 import sys
 
-if len(sys.argv) > 1 and sys.argv[1].lower() not in ['testbb', 'testgeo'] :
+if len(sys.argv) > 1 and sys.argv[1].lower() not in ['testbb', 'testgeo', 'minimizebb'] :
     exit('argument is incorrect')
 
 nonloc_values = []
@@ -33,7 +33,7 @@ print("Matrix is calculated. Shape is", conjunction_matrix.shape)
 threshold = 0.9
 
 if len(sys.argv) > 2 and sys.argv[1].lower() == 'testbb':
-    qualityTesting(bbox_values, sys.argv[2], threshold=threshold, conjunction_matrix=conjunction_matrix, d=d)
+    qualityTesting(bbox_values, sys.argv[2], threshold=threshold, alpha = 0.5, conjunction_matrix=conjunction_matrix, d=d)
     exit('testing is completed')
 
 exact_values = getGeo()
