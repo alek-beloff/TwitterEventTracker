@@ -132,7 +132,7 @@ while(True):
         print('time: ', t)
         print('id: ', i)
         i = i + 1
-        if i == 4:
+        if i == 5:
         ## sleep for 15mins if error
             time.sleep(60 * 15)
             t += 1
