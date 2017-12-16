@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cfb01d6-ccdc-4529-8e46-d2cf56c09751" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chicago_data.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/london_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/streaming_data.py" afterPath="$PROJECT_DIR$/streaming_data.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="streaming_alldata.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/streaming_alldata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="218" column="13" lean-forward="false" selection-start-line="218" selection-start-column="13" selection-end-line="218" selection-end-column="13" />
+            <state relative-caret-position="277">
+              <caret line="380" column="12" lean-forward="true" selection-start-line="380" selection-start-column="12" selection-end-line="380" selection-end-column="83" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -76,8 +75,8 @@
       <file leaf-file-name="glasgow_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/glasgow_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2234">
-              <caret line="5" column="44" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+            <state relative-caret-position="-238">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -85,7 +84,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chicago_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="london_data.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/london_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chicago_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chicago_data.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
@@ -143,6 +154,7 @@
         <option value="$PROJECT_DIR$/streaming_data.py" />
         <option value="$PROJECT_DIR$/streaming_alldata.py" />
         <option value="$PROJECT_DIR$/chicago_data.py" />
+        <option value="$PROJECT_DIR$/london_data.py" />
       </list>
     </option>
   </component>
@@ -1488,7 +1500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513437066788</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="chicago data collection">
+      <created>1513439517240</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1513439517240</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1576,7 +1595,8 @@
     <MESSAGE value="get historical data by ctc" />
     <MESSAGE value="streaming data by ctc" />
     <MESSAGE value="FinalPlot updated by ctc" />
-    <option name="LAST_COMMIT_MESSAGE" value="FinalPlot updated by ctc" />
+    <MESSAGE value="chicago data collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="chicago data collection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1590,13 +1610,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/localisation_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="68" column="18" lean-forward="true" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exact_coordinates.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1852,10 +1865,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chicago_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="119" lean-forward="false" selection-start-line="27" selection-start-column="119" selection-end-line="27" selection-end-column="119" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/glasgow_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2234">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+        <state relative-caret-position="-238">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -1864,18 +1887,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/streaming_alldata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="218" column="13" lean-forward="false" selection-start-line="218" selection-start-column="13" selection-end-line="218" selection-end-column="13" />
+        <state relative-caret-position="277">
+          <caret line="380" column="12" lean-forward="true" selection-start-line="380" selection-start-column="12" selection-end-line="380" selection-end-column="83" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chicago_data.py">
+    <entry file="file://$PROJECT_DIR$/london_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="119" lean-forward="false" selection-start-line="27" selection-start-column="119" selection-end-line="27" selection-end-column="119" />
+        <state relative-caret-position="149">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
