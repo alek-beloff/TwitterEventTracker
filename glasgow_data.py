@@ -14,6 +14,7 @@ OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO', '438291047-A
 OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg', 'o3kZKFF2s9ctgVpfDVRRpMbg6BMsGUIFWlJm9wSysKyyY', 'gdpRf9Qf2cU01yGPem2aJaP6sljaEah1lDdPRtyt2b75b', 'HweGKohJFWSMPDj1LwjoNExGIj1K2e7ApHdHpA7fcwl7F', 'bkDjxKNVddeDwBUIJo1mL5ENz3JTMD2Ka2jyJvAyGxsfC', 'J1p0QEWwbz6L9zjRXRsPqsRLcvzRG43UTL0mfrkj3wTs9'
 
 t_id = 941116528665260034 - 1
+end = False
 
 def changeAPI(id):
     a = tweepy.OAuthHandler(CONSUMER_KEY[id], CONSUMER_SECRET[id])
@@ -22,15 +23,19 @@ def changeAPI(id):
 
 def search_tweets():
     global t_id
+    global end
     max_id = t_id
     for tweet in tweepy.Cursor(api.search, geocode="55.86515,-4.25763,10km", lang="en", include_entities=True,  max_id=str(max_id-1)).items():
         date = str(tweet.created_at)[8:10]
         t_id = tweet.id
-        requiredDate = ['11', '12', '13']
+        requiredDate = ['10','11', '12', '13', '14','15', '16']
         print(tweet.created_at)
-        if date in requiredDate:
+        if date not in requiredDate:
             print(tweet.text)
-        continue
+            end = True
+            print('end', end)
+            break
+
         #no geo info
         if(tweet.user.geo_enabled == False):
 
@@ -128,12 +133,14 @@ i = 0
 while(True):
 
     ##run the program for 200 times
-    if t >= 200:
+    if t >= 2000:
         break
 
     try:
         api = changeAPI(i)
         search_tweets()
+        if end == True:
+            break
     except Exception as e:
         print('time: ', t)
         print('id: ', i)
@@ -141,7 +148,7 @@ while(True):
         print(str(e))
         if i == 6:
         ## sleep for 15mins if error
-            time.sleep(60 * 13)
+            time.sleep(60 * 5)
             t += 1
             i = 0
 
