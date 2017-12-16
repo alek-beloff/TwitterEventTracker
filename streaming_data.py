@@ -86,7 +86,7 @@ def checkGLA(status):
     locations = ['Glasgow', 'Scotland', 'Paisley']
     if (status.coordinates == None and status.place!=None):
         if (status.place.name not in locations): return True
-        print(status.place.name, status.place.bounding_box.coordinates[0][::2])
+        print(status.id,status.place.name, status.place.bounding_box.coordinates[0][::2])
         a = status._json
         a["_id"] = a["id"]
         try:
