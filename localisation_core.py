@@ -51,7 +51,7 @@ def getBbox():
                          bounding_box=json.loads(line)["place"]["bounding_box"]["coordinates"][0],
                          place=json.loads(line)["place"]["name"])
                    for line
-                   in tqdm(open("actual_data/bbox.json"))
+                   in tqdm(open("actual_data/bbox.json",encoding="utf-8"))
                    if json.loads(line)["lang"] == "en"
                    and json.loads(line)["in_reply_to_user_id"] == None
                    and json.loads(line)["in_reply_to_status_id"] == None
@@ -78,7 +78,7 @@ def qualityTesting(bbox_values, number, threshold, alpha, conjunction_matrix, d)
     amount_of_localized = 0
     amount_of_correct = 0
     print("Quality test is running currently...")
-    for test in tqdm(bbox_values[:int(number)]):
+    for test in tqdm(bbox_values[50:int(number)+50]):
         old_bbox = test.bounding_box
         result = localise_to_bbox([test], [x for x in bbox_values if x != test], threshold, alpha, conjunction_matrix, d)
         if (len(result) > 0):
@@ -86,7 +86,9 @@ def qualityTesting(bbox_values, number, threshold, alpha, conjunction_matrix, d)
             if list(old_bbox) == list(result[0].bounding_box):
                 amount_of_correct+=1
     l = amount_of_localized*100.0/float(number)
-    c = amount_of_correct*100.0/amount_of_localized
+    print (amount_of_correct)
+    return amount_of_correct
+    #c = amount_of_correct*100.0/amount_of_localized
     print("Amount of localized tweets is %f percent of the number given"%l)
     print("Amount of correctly localized tweets is %f percent of those which are localized"%c)
 
@@ -161,7 +163,7 @@ def localise_to_bbox(unloc, loc, threshold, alpha, conj_m, d):
             boxes.append(bbox.bounding_box)
         x0 = np.sum([x[0][0] * (1 / x[1] + 1 / x[2]) for x in points])
         y0 = np.sum([x[0][1] * (1 / x[1] + 1 / x[2]) for x in points])
-        m0 = np.sum([alpha / x[1] + (1 - alpha) / x[2] for x in points])
+        m0 = np.sum([2*alpha / x[1] + 2*(1 - alpha) / x[2] for x in points])
         coord_res = Point([x0 / m0, y0 / m0])
         for box in boxes:
             pol = Polygon(box)
