@@ -8,12 +8,12 @@ import time
 # OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO'
 # OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg'
 
-CONSUMER_KEY = 'cwuOhOSiMHaqSjUsyfYRVltuE', 'q4utaFepGhE5OjujyoruBOoQg', '8ZHXLlxEfLQm90U19fRC08NBx', 'r8dh3IsvxNOMH2UjSIoM00gnN', 'y5UTqSuap75HuKye2NPcr7rfI'
-CONSUMER_SECRET = 'JBZWaPi3ldDHgMo6NPr8MbRKEU2iHBW7xVzL094HjsoX33K4eJ', 'D5K3P5URNUTxKnoVnggiUFsNapuNLOSx5cB7Zh6Y4HhpBhhtNy', 'OjxPXXR4lDc666H2HUWtbQBtG2J5d2wDZY1B6XirQHpyZqGEbY', '0SqGVySPhZ8ngMYnQ05W8KPctMp8jbXGSdCo0qKxMYKwcewIrZ', 'blLk28TL9jEye1DH6CKDrlu4liu1kFssRMHglPXELUlzHzuhaP'
-OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO', '438291047-AWXl0LpNxZzjhdFA3FH7AJHtmLRK52QDJiKzq5Wz', '916331671372353536-lVwpfVwieRCuLmyP14j0lbXGuNcitcD', '917416602634768385-pXPkTeyW9vaysd4vZflYm2pZckkIeDn', '917723257217998848-uld992dlGdvz71FpxosLs7gjAUCuIbI'
-OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg', 'o3kZKFF2s9ctgVpfDVRRpMbg6BMsGUIFWlJm9wSysKyyY', 'gdpRf9Qf2cU01yGPem2aJaP6sljaEah1lDdPRtyt2b75b', 'HweGKohJFWSMPDj1LwjoNExGIj1K2e7ApHdHpA7fcwl7F', 'bkDjxKNVddeDwBUIJo1mL5ENz3JTMD2Ka2jyJvAyGxsfC'
+CONSUMER_KEY = 'cwuOhOSiMHaqSjUsyfYRVltuE', 'q4utaFepGhE5OjujyoruBOoQg', '8ZHXLlxEfLQm90U19fRC08NBx', 'r8dh3IsvxNOMH2UjSIoM00gnN', 'y5UTqSuap75HuKye2NPcr7rfI', 'tA56qfLnFMdUNHMMhrs5XtFUE'
+CONSUMER_SECRET = 'JBZWaPi3ldDHgMo6NPr8MbRKEU2iHBW7xVzL094HjsoX33K4eJ', 'D5K3P5URNUTxKnoVnggiUFsNapuNLOSx5cB7Zh6Y4HhpBhhtNy', 'OjxPXXR4lDc666H2HUWtbQBtG2J5d2wDZY1B6XirQHpyZqGEbY', '0SqGVySPhZ8ngMYnQ05W8KPctMp8jbXGSdCo0qKxMYKwcewIrZ', 'blLk28TL9jEye1DH6CKDrlu4liu1kFssRMHglPXELUlzHzuhaP', 'mcyFIkViAEs2HgYAi5n9toH1rYnPKYMblYvUhz0rh7CL5mEG72'
+OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO', '438291047-AWXl0LpNxZzjhdFA3FH7AJHtmLRK52QDJiKzq5Wz', '916331671372353536-lVwpfVwieRCuLmyP14j0lbXGuNcitcD', '917416602634768385-pXPkTeyW9vaysd4vZflYm2pZckkIeDn', '917723257217998848-uld992dlGdvz71FpxosLs7gjAUCuIbI', '915531741795962880-NFqV6fvMwNahmd4PWcxS9Yw2UEWhcks'
+OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg', 'o3kZKFF2s9ctgVpfDVRRpMbg6BMsGUIFWlJm9wSysKyyY', 'gdpRf9Qf2cU01yGPem2aJaP6sljaEah1lDdPRtyt2b75b', 'HweGKohJFWSMPDj1LwjoNExGIj1K2e7ApHdHpA7fcwl7F', 'bkDjxKNVddeDwBUIJo1mL5ENz3JTMD2Ka2jyJvAyGxsfC', 'J1p0QEWwbz6L9zjRXRsPqsRLcvzRG43UTL0mfrkj3wTs9'
 
-
+t_id = 941116528665260034 - 1
 
 def changeAPI(id):
     a = tweepy.OAuthHandler(CONSUMER_KEY[id], CONSUMER_SECRET[id])
@@ -21,9 +21,15 @@ def changeAPI(id):
     return tweepy.API(a)
 
 def search_tweets():
-    for tweet in tweepy.Cursor(api.search, geocode="55.86515,-4.25763,10km", lang="en", include_entities=True).items():
-        print(tweet.created_at[8:9])
-        print(tweet.text)
+    global t_id
+    max_id = t_id
+    for tweet in tweepy.Cursor(api.search, geocode="55.86515,-4.25763,10km", lang="en", include_entities=True,  max_id=str(max_id-1)).items():
+        date = str(tweet.created_at)[8:10]
+        t_id = tweet.id
+        requiredDate = ['11', '12', '13']
+        print(tweet.created_at)
+        if date in requiredDate:
+            print(tweet.text)
         continue
         #no geo info
         if(tweet.user.geo_enabled == False):
@@ -31,20 +37,20 @@ def search_tweets():
             print(tweet._json)
             a = tweet._json
             a["_id"] = a["id"]
-            # try:
-            #     db.hist_glasgow_nogeolocation.insert_one(a).inserted_id
-            # except:
-            #     print("duplicated!")
+            try:
+                db.MonToWed_hist_glasgow_nogeolocation.insert_one(a).inserted_id
+            except:
+                print("duplicated!")
 
         #exact coord
         if (tweet.user.geo_enabled == True and tweet.coordinates != None):
             print(tweet._json)
             a = tweet._json
             a["_id"] = a["id"]
-            # try:
-            #     db.hist_glasgow_geo_coordinates.insert_one(a).inserted_id
-            # except:
-            #     print("duplicated!")
+            try:
+                db.MonToWed_hist_glasgow_geo_coordinates.insert_one(a).inserted_id
+            except:
+                print("duplicated!")
 
         ##bounding box
         if (tweet.user.geo_enabled == True and tweet.place != None and tweet.coordinates == None):
@@ -52,10 +58,10 @@ def search_tweets():
             print(tweet.place.bounding_box.coordinates)
             a = tweet._json
             a["_id"] = a["id"]
-            # try:
-            #     db.hist_glasgow_bounding_box.insert_one(tweet._json).inserted_id
-            # except:
-            #     print("duplicated!")
+            try:
+                db.MonToWed_hist_glasgow_bounding_box.insert_one(tweet._json).inserted_id
+            except:
+                print("duplicated!")
 
 
 
@@ -128,13 +134,15 @@ while(True):
     try:
         api = changeAPI(i)
         search_tweets()
-    except:
+    except Exception as e:
         print('time: ', t)
         print('id: ', i)
         i = i + 1
-        if i == 5:
+        print(str(e))
+        if i == 6:
         ## sleep for 15mins if error
-            time.sleep(60 * 15)
+            time.sleep(60 * 13)
             t += 1
             i = 0
+
 
