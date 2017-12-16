@@ -13,7 +13,7 @@ CONSUMER_SECRET = 'JBZWaPi3ldDHgMo6NPr8MbRKEU2iHBW7xVzL094HjsoX33K4eJ', 'D5K3P5U
 OAUTH_TOKEN = '842632842207203328-cNbwTaG4eW4rbQJwaG4RxtZkHJ51SoO', '438291047-AWXl0LpNxZzjhdFA3FH7AJHtmLRK52QDJiKzq5Wz', '916331671372353536-lVwpfVwieRCuLmyP14j0lbXGuNcitcD', '917416602634768385-pXPkTeyW9vaysd4vZflYm2pZckkIeDn', '917723257217998848-uld992dlGdvz71FpxosLs7gjAUCuIbI', '915531741795962880-NFqV6fvMwNahmd4PWcxS9Yw2UEWhcks'
 OAUTH_TOKEN_SECRET = 'IhypdlKWPYtpKJ8aWevWTPTyeTbtmffVRGsFcF9hXkQQg', 'o3kZKFF2s9ctgVpfDVRRpMbg6BMsGUIFWlJm9wSysKyyY', 'gdpRf9Qf2cU01yGPem2aJaP6sljaEah1lDdPRtyt2b75b', 'HweGKohJFWSMPDj1LwjoNExGIj1K2e7ApHdHpA7fcwl7F', 'bkDjxKNVddeDwBUIJo1mL5ENz3JTMD2Ka2jyJvAyGxsfC', 'J1p0QEWwbz6L9zjRXRsPqsRLcvzRG43UTL0mfrkj3wTs9'
 
-t_id = 942071339216789504 - 1
+t_id = 942069200503410688 - 1
 end = False
 
 def changeAPI(id):
@@ -25,7 +25,7 @@ def search_tweets():
     global t_id
     global end
     max_id = t_id
-    for tweet in tweepy.Cursor(api.search, geocode="40.7127,-87.62979,10km", lang="en", include_entities=True,  max_id=str(max_id-1)).items():
+    for tweet in tweepy.Cursor(api.search, geocode="51.50735,-0.12776,10km", lang="en", include_entities=True,  max_id=str(max_id-1)).items():
         date = str(tweet.created_at)[8:10]
         t_id = tweet.id
         requiredDate = ['10','11', '12', '13', '14','15', '16']
@@ -43,7 +43,7 @@ def search_tweets():
             a = tweet._json
             a["_id"] = a["id"]
             try:
-                db.MonToWed_hist_newyork_nogeolocation.insert_one(a).inserted_id
+                db.MonToWed_hist_london_nogeolocation.insert_one(a).inserted_id
             except:
                 print("duplicated!")
 
@@ -53,7 +53,7 @@ def search_tweets():
             a = tweet._json
             a["_id"] = a["id"]
             try:
-                db.MonToWed_hist_newyork_geo_coordinates.insert_one(a).inserted_id
+                db.MonToWed_hist_london_geo_coordinates.insert_one(a).inserted_id
             except:
                 print("duplicated!")
 
@@ -64,7 +64,7 @@ def search_tweets():
             a = tweet._json
             a["_id"] = a["id"]
             try:
-                db.MonToWed_hist_newyork_bounding_box.insert_one(tweet._json).inserted_id
+                db.MonToWed_hist_london_bounding_box.insert_one(tweet._json).inserted_id
             except:
                 print("duplicated!")
 

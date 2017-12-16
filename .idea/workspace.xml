@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cfb01d6-ccdc-4529-8e46-d2cf56c09751" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/london_data.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newyork_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/london_data.py" afterPath="$PROJECT_DIR$/london_data.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-89">
-              <caret line="54" column="54" lean-forward="true" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+              <caret line="54" column="54" lean-forward="false" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -42,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/streaming_alldata.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
-              <caret line="380" column="12" lean-forward="true" selection-start-line="380" selection-start-column="12" selection-end-line="380" selection-end-column="83" />
+              <caret line="380" column="12" lean-forward="false" selection-start-line="380" selection-start-column="12" selection-end-line="380" selection-end-column="83" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -54,9 +55,19 @@
         <entry file="file://$PROJECT_DIR$/localisation_core.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="332">
-              <caret line="212" column="26" lean-forward="false" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="26" />
+              <caret line="214" column="26" lean-forward="false" selection-start-line="214" selection-start-column="26" selection-end-line="214" selection-end-column="26" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
+                <marker date="1513441923162" expanded="true" signature="1600:2130" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="1692:2130" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="6636:6916" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="6636:6935" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="6744:6916" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="6815:6916" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="7322:7475" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="7363:7475" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="7731:7808" ph="..." />
+                <marker date="1513441923162" expanded="true" signature="7853:8184" ph="..." />
               </folding>
             </state>
           </provider>
@@ -66,17 +77,17 @@
         <entry file="file://$PROJECT_DIR$/localisation_main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="737">
-              <caret line="67" column="79" lean-forward="true" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
+              <caret line="67" column="79" lean-forward="false" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="glasgow_data.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="glasgow_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/glasgow_data.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-238">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -84,13 +95,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="london_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="london_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/london_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            <state relative-caret-position="272">
+              <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newyork_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newyork_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2188">
+              <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="optimization.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/optimization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-255">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,6 +189,7 @@
         <option value="$PROJECT_DIR$/streaming_data.py" />
         <option value="$PROJECT_DIR$/streaming_alldata.py" />
         <option value="$PROJECT_DIR$/chicago_data.py" />
+        <option value="$PROJECT_DIR$/newyork_data.py" />
         <option value="$PROJECT_DIR$/london_data.py" />
       </list>
     </option>
@@ -1507,7 +1543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513439517240</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="london data collection">
+      <created>1513441903495</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1513441903495</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1596,7 +1639,8 @@
     <MESSAGE value="streaming data by ctc" />
     <MESSAGE value="FinalPlot updated by ctc" />
     <MESSAGE value="chicago data collection" />
-    <option name="LAST_COMMIT_MESSAGE" value="chicago data collection" />
+    <MESSAGE value="london data collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="london data collection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1610,20 +1654,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exact_coordinates.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/install_mongodb.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geocoordinatedata.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1807,7 +1837,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-89">
-          <caret line="54" column="54" lean-forward="true" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+          <caret line="54" column="54" lean-forward="false" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -1825,9 +1855,19 @@
     <entry file="file://$PROJECT_DIR$/localisation_core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="212" column="26" lean-forward="false" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="26" />
+          <caret line="214" column="26" lean-forward="false" selection-start-line="214" selection-start-column="26" selection-end-line="214" selection-end-column="26" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+            <marker date="1513441923162" expanded="true" signature="1600:2130" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="1692:2130" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="6636:6916" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="6636:6935" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="6744:6916" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="6815:6916" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="7322:7475" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="7363:7475" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="7731:7808" ph="..." />
+            <marker date="1513441923162" expanded="true" signature="7853:8184" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1835,7 +1875,7 @@
     <entry file="file://$PROJECT_DIR$/localisation_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="737">
-          <caret line="67" column="79" lean-forward="true" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
+          <caret line="67" column="79" lean-forward="false" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -1875,12 +1915,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glasgow_data.py">
+    <entry file="file://$PROJECT_DIR$/optimization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1888,7 +1928,17 @@
     <entry file="file://$PROJECT_DIR$/streaming_alldata.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
-          <caret line="380" column="12" lean-forward="true" selection-start-line="380" selection-start-column="12" selection-end-line="380" selection-end-column="83" />
+          <caret line="380" column="12" lean-forward="false" selection-start-line="380" selection-start-column="12" selection-end-line="380" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newyork_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2188">
+          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -1897,8 +1947,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/london_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="272">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glasgow_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
