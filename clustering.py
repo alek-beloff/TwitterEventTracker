@@ -11,7 +11,7 @@ def totimestamp(dt, epoch=datetime(2017,9,9)):
     # return td.total_seconds()
     return (td.microseconds + (td.seconds + td.days * 86400) * 10**6) / (2*10**11)
 
-def getClusters(geo):
+def getClusters(geo, place):
     tweet_content = [value.text for value in geo]
     # flatten the list of lists to 1d array
     flatten_content = [item for sublist in tweet_content for item in sublist]
@@ -108,7 +108,8 @@ def getClusters(geo):
         for item in cluster:
             popup = ', '.join(item[0]) + str(item[1]) + str(item[2])
             folium.Marker(item[3], popup=popup).add_to(marker_cluster)
-        uk.save("./event_clusters.html")
+
+    uk.save("examples/"+place+"_event_clusters.html")
 
 
 
@@ -124,6 +125,6 @@ for item in geo:
         geoCollection[item.place].append(item)
 
 for item in geoCollection:
-    getClusters(geoCollection[item])
+    getClusters(geoCollection[item], geoCollection[item][0].place)
 
 

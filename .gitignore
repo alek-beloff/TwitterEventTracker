@@ -102,3 +102,4 @@ ENV/
 
 #ignore data
 actual_data
+.idea

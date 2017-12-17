@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_f9832d4ff2104651a8c6d3253c652deb {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css" />
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_f9832d4ff2104651a8c6d3253c652deb" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_f9832d4ff2104651a8c6d3253c652deb = L.map(
+                                  'map_f9832d4ff2104651a8c6d3253c652deb',
+                                  {center: [40.69416667,-73.91861111],
+                                  zoom: 10,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            L.control.scale().addTo(map_f9832d4ff2104651a8c6d3253c652deb);
+        
+    
+            var tile_layer_86211e99417d4045bd04a6eac7da4620 = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_f9832d4ff2104651a8c6d3253c652deb);
+        
+    
+            var marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1 = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+
+            var marker_c24df7b9cb974b8381bb5d42b1e205e7 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+            var popup_915de273b5b34152bfbc3bde89a9fb15 = L.popup({maxWidth: '300'});
+
+            
+                var html_075d65a214f848659bacb30dfa9b40fb = $('<div id="html_075d65a214f848659bacb30dfa9b40fb" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_915de273b5b34152bfbc3bde89a9fb15.setContent(html_075d65a214f848659bacb30dfa9b40fb);
+            
+
+            marker_c24df7b9cb974b8381bb5d42b1e205e7.bindPopup(popup_915de273b5b34152bfbc3bde89a9fb15);
+
+            
+        
+    
+
+            var marker_8d4340c9e46b46ddbc99b0fa1722831b = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+            var popup_f4d14b6f20c145579e6ac99782fb79a1 = L.popup({maxWidth: '300'});
+
+            
+                var html_f7ba7ed8385b4277a6c94908adf09581 = $('<div id="html_f7ba7ed8385b4277a6c94908adf09581" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_f4d14b6f20c145579e6ac99782fb79a1.setContent(html_f7ba7ed8385b4277a6c94908adf09581);
+            
+
+            marker_8d4340c9e46b46ddbc99b0fa1722831b.bindPopup(popup_f4d14b6f20c145579e6ac99782fb79a1);
+
+            
+        
+    
+
+            var marker_0555d6f42c8d4f14b0511e6f18f4e2f0 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+            var popup_34ccea1ffe874cbf8440707f3a6daeb2 = L.popup({maxWidth: '300'});
+
+            
+                var html_f47722928daf47c7b982b6620bf60290 = $('<div id="html_f47722928daf47c7b982b6620bf60290" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_34ccea1ffe874cbf8440707f3a6daeb2.setContent(html_f47722928daf47c7b982b6620bf60290);
+            
+
+            marker_0555d6f42c8d4f14b0511e6f18f4e2f0.bindPopup(popup_34ccea1ffe874cbf8440707f3a6daeb2);
+
+            
+        
+    
+
+            var marker_79ef8449f2c749e99f2811cefe2ab895 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+            var popup_9d6c7896b9ad4d9488fe907b48071d3c = L.popup({maxWidth: '300'});
+
+            
+                var html_06eb2899318b4b339795d974473ddfe3 = $('<div id="html_06eb2899318b4b339795d974473ddfe3" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:26+00:00511 NYC Area</div>')[0];
+                popup_9d6c7896b9ad4d9488fe907b48071d3c.setContent(html_06eb2899318b4b339795d974473ddfe3);
+            
+
+            marker_79ef8449f2c749e99f2811cefe2ab895.bindPopup(popup_9d6c7896b9ad4d9488fe907b48071d3c);
+
+            
+        
+    
+
+            var marker_640b73924d8b431ab3fbaa66e673e3de = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+            var popup_51f1ffc66f714015846097e64dd7e4d4 = L.popup({maxWidth: '300'});
+
+            
+                var html_1c7ec3de234141b1bdd7f0ca33466cbe = $('<div id="html_1c7ec3de234141b1bdd7f0ca33466cbe" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_51f1ffc66f714015846097e64dd7e4d4.setContent(html_1c7ec3de234141b1bdd7f0ca33466cbe);
+            
+
+            marker_640b73924d8b431ab3fbaa66e673e3de.bindPopup(popup_51f1ffc66f714015846097e64dd7e4d4);
+
+            
+        
+    
+
+            var marker_2bbe0707a3ed483bac1026a031759ae4 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_8c7cea9efdc84d86b18457d9c8999dd1);
+            
+    
+            var popup_157c4da4b94e40f29ca23bee080cd103 = L.popup({maxWidth: '300'});
+
+            
+                var html_01651400396b4fc69bc1345cdb45c53f = $('<div id="html_01651400396b4fc69bc1345cdb45c53f" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_157c4da4b94e40f29ca23bee080cd103.setContent(html_01651400396b4fc69bc1345cdb45c53f);
+            
+
+            marker_2bbe0707a3ed483bac1026a031759ae4.bindPopup(popup_157c4da4b94e40f29ca23bee080cd103);
+
+            
+        
+    
+            var marker_cluster_404150b6e5ea42ff9c952200762ac228 = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+
+            var marker_6c99497900194b6e946e1eb7b69b1959 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+            var popup_b8a1aff1b5ff452388952b8bd55c2a4a = L.popup({maxWidth: '300'});
+
+            
+                var html_8e9352e22f06478c9e45bdc3b3598eb6 = $('<div id="html_8e9352e22f06478c9e45bdc3b3598eb6" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_b8a1aff1b5ff452388952b8bd55c2a4a.setContent(html_8e9352e22f06478c9e45bdc3b3598eb6);
+            
+
+            marker_6c99497900194b6e946e1eb7b69b1959.bindPopup(popup_b8a1aff1b5ff452388952b8bd55c2a4a);
+
+            
+        
+    
+
+            var marker_5c96077088a44cfd8150c8bd1b71afd3 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+            var popup_44f23e2131724b8d9375874034b3f24a = L.popup({maxWidth: '300'});
+
+            
+                var html_c2c7f4d9c7674170b2f5f10c02922065 = $('<div id="html_c2c7f4d9c7674170b2f5f10c02922065" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_44f23e2131724b8d9375874034b3f24a.setContent(html_c2c7f4d9c7674170b2f5f10c02922065);
+            
+
+            marker_5c96077088a44cfd8150c8bd1b71afd3.bindPopup(popup_44f23e2131724b8d9375874034b3f24a);
+
+            
+        
+    
+
+            var marker_099f1019c8fc46c492533363da5e8e91 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+            var popup_1e9ae2535c2c444987b2449b9ed6b3e1 = L.popup({maxWidth: '300'});
+
+            
+                var html_5d1880e64c5f434db83733c6f058e48c = $('<div id="html_5d1880e64c5f434db83733c6f058e48c" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:26+00:00511 NYC Area</div>')[0];
+                popup_1e9ae2535c2c444987b2449b9ed6b3e1.setContent(html_5d1880e64c5f434db83733c6f058e48c);
+            
+
+            marker_099f1019c8fc46c492533363da5e8e91.bindPopup(popup_1e9ae2535c2c444987b2449b9ed6b3e1);
+
+            
+        
+    
+
+            var marker_93589d9f146a4717bfdd84a86d4b23a2 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+            var popup_685814faa440413bb1097c211d95691a = L.popup({maxWidth: '300'});
+
+            
+                var html_0dc73c5a74a54a2091d79d5fe7d55390 = $('<div id="html_0dc73c5a74a54a2091d79d5fe7d55390" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_685814faa440413bb1097c211d95691a.setContent(html_0dc73c5a74a54a2091d79d5fe7d55390);
+            
+
+            marker_93589d9f146a4717bfdd84a86d4b23a2.bindPopup(popup_685814faa440413bb1097c211d95691a);
+
+            
+        
+    
+
+            var marker_1a745b34194e492ca2aeb9db5dbdf995 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+            var popup_af98aefc00704ddab99adbee9ba4740c = L.popup({maxWidth: '300'});
+
+            
+                var html_4c9e4b8f1bec4c49bb4e90aa5eac49dc = $('<div id="html_4c9e4b8f1bec4c49bb4e90aa5eac49dc" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_af98aefc00704ddab99adbee9ba4740c.setContent(html_4c9e4b8f1bec4c49bb4e90aa5eac49dc);
+            
+
+            marker_1a745b34194e492ca2aeb9db5dbdf995.bindPopup(popup_af98aefc00704ddab99adbee9ba4740c);
+
+            
+        
+    
+
+            var marker_6263a5a1d0714eef82d11c8efd5d6335 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_404150b6e5ea42ff9c952200762ac228);
+            
+    
+            var popup_471831b11fb64138b88a391e52794d34 = L.popup({maxWidth: '300'});
+
+            
+                var html_d6ce94bb1ba341aa95e1e3b78042f9ea = $('<div id="html_d6ce94bb1ba341aa95e1e3b78042f9ea" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_471831b11fb64138b88a391e52794d34.setContent(html_d6ce94bb1ba341aa95e1e3b78042f9ea);
+            
+
+            marker_6263a5a1d0714eef82d11c8efd5d6335.bindPopup(popup_471831b11fb64138b88a391e52794d34);
+
+            
+        
+    
+            var marker_cluster_ff5a96922df1473aa5be14f359fe4946 = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_ff5a96922df1473aa5be14f359fe4946);
+            
+    
+
+            var marker_a036a1f660984547a94906e4300e6928 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_ff5a96922df1473aa5be14f359fe4946);
+            
+    
+            var popup_7fa3aa36ed8f46eebf7a4695bccf5bff = L.popup({maxWidth: '300'});
+
+            
+                var html_0b04ed1eb8024636b37dfadb5cbc940b = $('<div id="html_0b04ed1eb8024636b37dfadb5cbc940b" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_7fa3aa36ed8f46eebf7a4695bccf5bff.setContent(html_0b04ed1eb8024636b37dfadb5cbc940b);
+            
+
+            marker_a036a1f660984547a94906e4300e6928.bindPopup(popup_7fa3aa36ed8f46eebf7a4695bccf5bff);
+
+            
+        
+    
+
+            var marker_55f383b44a9341398632677d55bab8fb = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_ff5a96922df1473aa5be14f359fe4946);
+            
+    
+            var popup_3715909d11ec4b8396e5a4b321ab4cde = L.popup({maxWidth: '300'});
+
+            
+                var html_7aee1c45bd3f48d29180d44a6a2742f2 = $('<div id="html_7aee1c45bd3f48d29180d44a6a2742f2" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_3715909d11ec4b8396e5a4b321ab4cde.setContent(html_7aee1c45bd3f48d29180d44a6a2742f2);
+            
+
+            marker_55f383b44a9341398632677d55bab8fb.bindPopup(popup_3715909d11ec4b8396e5a4b321ab4cde);
+
+            
+        
+    
+
+            var marker_45f273514f0f42429da398d5913bcd0c = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_ff5a96922df1473aa5be14f359fe4946);
+            
+    
+            var popup_20e881f2e2484661af968630b162fc31 = L.popup({maxWidth: '300'});
+
+            
+                var html_900dbb75c14e4aa89c142cc7873915e3 = $('<div id="html_900dbb75c14e4aa89c142cc7873915e3" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_20e881f2e2484661af968630b162fc31.setContent(html_900dbb75c14e4aa89c142cc7873915e3);
+            
+
+            marker_45f273514f0f42429da398d5913bcd0c.bindPopup(popup_20e881f2e2484661af968630b162fc31);
+
+            
+        
+    
+
+            var marker_5c7d406042714be7a4d1b4ecb47baec5 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_ff5a96922df1473aa5be14f359fe4946);
+            
+    
+            var popup_7c92fcad57c242c5bdc72c26f3f718c6 = L.popup({maxWidth: '300'});
+
+            
+                var html_4a5dc51316e84b1884fc7c21e399ea72 = $('<div id="html_4a5dc51316e84b1884fc7c21e399ea72" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:26+00:00511 New York</div>')[0];
+                popup_7c92fcad57c242c5bdc72c26f3f718c6.setContent(html_4a5dc51316e84b1884fc7c21e399ea72);
+            
+
+            marker_5c7d406042714be7a4d1b4ecb47baec5.bindPopup(popup_7c92fcad57c242c5bdc72c26f3f718c6);
+
+            
+        
+    
+            var marker_cluster_1e901c4787604bb7ba59e84696a5c8e4 = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+
+            var marker_20c82dfe2dce478bbacad27dc373eea3 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+            var popup_9c1faf37f2634489b658f93ee9758384 = L.popup({maxWidth: '300'});
+
+            
+                var html_b88cc173df114ae1882b1682a50473df = $('<div id="html_b88cc173df114ae1882b1682a50473df" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_9c1faf37f2634489b658f93ee9758384.setContent(html_b88cc173df114ae1882b1682a50473df);
+            
+
+            marker_20c82dfe2dce478bbacad27dc373eea3.bindPopup(popup_9c1faf37f2634489b658f93ee9758384);
+
+            
+        
+    
+
+            var marker_47cbdd04def94b74ba2163533b6c8b97 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+            var popup_e2ecaabbb26246838e210425d4d1647c = L.popup({maxWidth: '300'});
+
+            
+                var html_04f7617eb5ce46e29e14360353da2cb8 = $('<div id="html_04f7617eb5ce46e29e14360353da2cb8" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:26+00:00511 NYC Area</div>')[0];
+                popup_e2ecaabbb26246838e210425d4d1647c.setContent(html_04f7617eb5ce46e29e14360353da2cb8);
+            
+
+            marker_47cbdd04def94b74ba2163533b6c8b97.bindPopup(popup_e2ecaabbb26246838e210425d4d1647c);
+
+            
+        
+    
+
+            var marker_faacf24b7e4a454abf109610dd7e9fb7 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+            var popup_09c0ca13fa17490699c3b5360b7f1bce = L.popup({maxWidth: '300'});
+
+            
+                var html_dd0d9f6cfbd54ab59578096cbf0fa9ba = $('<div id="html_dd0d9f6cfbd54ab59578096cbf0fa9ba" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_09c0ca13fa17490699c3b5360b7f1bce.setContent(html_dd0d9f6cfbd54ab59578096cbf0fa9ba);
+            
+
+            marker_faacf24b7e4a454abf109610dd7e9fb7.bindPopup(popup_09c0ca13fa17490699c3b5360b7f1bce);
+
+            
+        
+    
+
+            var marker_63a468bb01f34abdb65b9e381fd17ca0 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+            var popup_9bf4d6659f2a467d9ddaf2cdca614a24 = L.popup({maxWidth: '300'});
+
+            
+                var html_b5e5a467cec24c7b80b433fef4dfca9f = $('<div id="html_b5e5a467cec24c7b80b433fef4dfca9f" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_9bf4d6659f2a467d9ddaf2cdca614a24.setContent(html_b5e5a467cec24c7b80b433fef4dfca9f);
+            
+
+            marker_63a468bb01f34abdb65b9e381fd17ca0.bindPopup(popup_9bf4d6659f2a467d9ddaf2cdca614a24);
+
+            
+        
+    
+
+            var marker_8c133405a582441296c1886ba22e8970 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+            var popup_d9af6e2c264e45289a94886e3ce3d474 = L.popup({maxWidth: '300'});
+
+            
+                var html_514d992b615a4bed88f392de4cacace7 = $('<div id="html_514d992b615a4bed88f392de4cacace7" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_d9af6e2c264e45289a94886e3ce3d474.setContent(html_514d992b615a4bed88f392de4cacace7);
+            
+
+            marker_8c133405a582441296c1886ba22e8970.bindPopup(popup_d9af6e2c264e45289a94886e3ce3d474);
+
+            
+        
+    
+
+            var marker_af7e90cc30e944138d6a32e856b6dd13 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_1e901c4787604bb7ba59e84696a5c8e4);
+            
+    
+            var popup_fd2429bf3e714a19985d8828358927ea = L.popup({maxWidth: '300'});
+
+            
+                var html_bc1b6d38ca794081b76a1ad40f08a4ef = $('<div id="html_bc1b6d38ca794081b76a1ad40f08a4ef" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_fd2429bf3e714a19985d8828358927ea.setContent(html_bc1b6d38ca794081b76a1ad40f08a4ef);
+            
+
+            marker_af7e90cc30e944138d6a32e856b6dd13.bindPopup(popup_fd2429bf3e714a19985d8828358927ea);
+
+            
+        
+    
+            var marker_cluster_efb988b341c74127afb8c12d4630410e = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+
+            var marker_36fb5ce1e99c44feaf3cf62d565262e8 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+            var popup_fc06afcc405747b98db5bb197f02ae25 = L.popup({maxWidth: '300'});
+
+            
+                var html_382de05428af473fa81b2f693ca24272 = $('<div id="html_382de05428af473fa81b2f693ca24272" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_fc06afcc405747b98db5bb197f02ae25.setContent(html_382de05428af473fa81b2f693ca24272);
+            
+
+            marker_36fb5ce1e99c44feaf3cf62d565262e8.bindPopup(popup_fc06afcc405747b98db5bb197f02ae25);
+
+            
+        
+    
+
+            var marker_294517e00ee24f4296e7bf7638befc40 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+            var popup_b8e4bad8f8f44227a074b1e92a5040a5 = L.popup({maxWidth: '300'});
+
+            
+                var html_83eae75894134d64a370c8c75faf4468 = $('<div id="html_83eae75894134d64a370c8c75faf4468" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_b8e4bad8f8f44227a074b1e92a5040a5.setContent(html_83eae75894134d64a370c8c75faf4468);
+            
+
+            marker_294517e00ee24f4296e7bf7638befc40.bindPopup(popup_b8e4bad8f8f44227a074b1e92a5040a5);
+
+            
+        
+    
+
+            var marker_7d942b7fa8d44dc4b206d28df890b218 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+            var popup_1c85dda6122b469b935014cf5ec86f3c = L.popup({maxWidth: '300'});
+
+            
+                var html_807f5c5ab7934ee69c8d9c6301784eaa = $('<div id="html_807f5c5ab7934ee69c8d9c6301784eaa" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_1c85dda6122b469b935014cf5ec86f3c.setContent(html_807f5c5ab7934ee69c8d9c6301784eaa);
+            
+
+            marker_7d942b7fa8d44dc4b206d28df890b218.bindPopup(popup_1c85dda6122b469b935014cf5ec86f3c);
+
+            
+        
+    
+
+            var marker_c9af56a5e4ad4251bcd072079cb5b95a = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+            var popup_847667a330824482bf9077f29b65a41e = L.popup({maxWidth: '300'});
+
+            
+                var html_a46173913e7a415d97e07374b159d2bc = $('<div id="html_a46173913e7a415d97e07374b159d2bc" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:26+00:00511 NYC Area</div>')[0];
+                popup_847667a330824482bf9077f29b65a41e.setContent(html_a46173913e7a415d97e07374b159d2bc);
+            
+
+            marker_c9af56a5e4ad4251bcd072079cb5b95a.bindPopup(popup_847667a330824482bf9077f29b65a41e);
+
+            
+        
+    
+
+            var marker_ed4c516b8e0546658cf02d58b3254c5f = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+            var popup_523f9b3ff9d9427cb675749faba08877 = L.popup({maxWidth: '300'});
+
+            
+                var html_05fcbdc383bf42c49731bf330fbcb124 = $('<div id="html_05fcbdc383bf42c49731bf330fbcb124" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_523f9b3ff9d9427cb675749faba08877.setContent(html_05fcbdc383bf42c49731bf330fbcb124);
+            
+
+            marker_ed4c516b8e0546658cf02d58b3254c5f.bindPopup(popup_523f9b3ff9d9427cb675749faba08877);
+
+            
+        
+    
+
+            var marker_056c6a145efd4edf900c2fd903433b9e = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_efb988b341c74127afb8c12d4630410e);
+            
+    
+            var popup_0432e94cc0044117a75a87da150381bc = L.popup({maxWidth: '300'});
+
+            
+                var html_c64bdb60743b460d969e40f4fa330c16 = $('<div id="html_c64bdb60743b460d969e40f4fa330c16" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_0432e94cc0044117a75a87da150381bc.setContent(html_c64bdb60743b460d969e40f4fa330c16);
+            
+
+            marker_056c6a145efd4edf900c2fd903433b9e.bindPopup(popup_0432e94cc0044117a75a87da150381bc);
+
+            
+        
+    
+            var marker_cluster_48041aea8db84d908f5772146cb1205a = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_48041aea8db84d908f5772146cb1205a);
+            
+    
+
+            var marker_3d8bd918bfa343c4bd5d868bbb4fd423 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_48041aea8db84d908f5772146cb1205a);
+            
+    
+            var popup_997d3f3195c74654a5949ba8fbc1ecf4 = L.popup({maxWidth: '300'});
+
+            
+                var html_53124a719af646eabe724d96ed600f22 = $('<div id="html_53124a719af646eabe724d96ed600f22" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_997d3f3195c74654a5949ba8fbc1ecf4.setContent(html_53124a719af646eabe724d96ed600f22);
+            
+
+            marker_3d8bd918bfa343c4bd5d868bbb4fd423.bindPopup(popup_997d3f3195c74654a5949ba8fbc1ecf4);
+
+            
+        
+    
+
+            var marker_be9fd7090f444ec4a75a2e1933f54ac4 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_48041aea8db84d908f5772146cb1205a);
+            
+    
+            var popup_dd488a31fc0549fab1bc4525e6898ed5 = L.popup({maxWidth: '300'});
+
+            
+                var html_4aa65b2a3b9e485492453b19fdf5d9f1 = $('<div id="html_4aa65b2a3b9e485492453b19fdf5d9f1" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_dd488a31fc0549fab1bc4525e6898ed5.setContent(html_4aa65b2a3b9e485492453b19fdf5d9f1);
+            
+
+            marker_be9fd7090f444ec4a75a2e1933f54ac4.bindPopup(popup_dd488a31fc0549fab1bc4525e6898ed5);
+
+            
+        
+    
+
+            var marker_0b55d52910644921973a4fd592cb35c7 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_48041aea8db84d908f5772146cb1205a);
+            
+    
+            var popup_4355019b092743ba8c0486ba8263af46 = L.popup({maxWidth: '300'});
+
+            
+                var html_d98d96accbf74287b61987e2ac308dca = $('<div id="html_d98d96accbf74287b61987e2ac308dca" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:26+00:00511 New York</div>')[0];
+                popup_4355019b092743ba8c0486ba8263af46.setContent(html_d98d96accbf74287b61987e2ac308dca);
+            
+
+            marker_0b55d52910644921973a4fd592cb35c7.bindPopup(popup_4355019b092743ba8c0486ba8263af46);
+
+            
+        
+    
+
+            var marker_6ea63760f8eb4100a37a8379a80de038 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_48041aea8db84d908f5772146cb1205a);
+            
+    
+            var popup_e59af39b4caa484294f3dc67154204b5 = L.popup({maxWidth: '300'});
+
+            
+                var html_3c25fe0b2b424f9c8d76f45773d554b2 = $('<div id="html_3c25fe0b2b424f9c8d76f45773d554b2" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_e59af39b4caa484294f3dc67154204b5.setContent(html_3c25fe0b2b424f9c8d76f45773d554b2);
+            
+
+            marker_6ea63760f8eb4100a37a8379a80de038.bindPopup(popup_e59af39b4caa484294f3dc67154204b5);
+
+            
+        
+    
+            var marker_cluster_2204c7aebd5643e9883fe3831fef53ac = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+
+            var marker_5d672373812944d799e83cb5b4bea73e = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+            var popup_fd63a841ee4946f292556e07e40d1485 = L.popup({maxWidth: '300'});
+
+            
+                var html_a2fab718d8ab45b3932a126eeddf977a = $('<div id="html_a2fab718d8ab45b3932a126eeddf977a" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_fd63a841ee4946f292556e07e40d1485.setContent(html_a2fab718d8ab45b3932a126eeddf977a);
+            
+
+            marker_5d672373812944d799e83cb5b4bea73e.bindPopup(popup_fd63a841ee4946f292556e07e40d1485);
+
+            
+        
+    
+
+            var marker_5e9203c2261e499fa7d84e6430ad0e51 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+            var popup_6c60547a254c4f8bbfa3dacb1a5b971c = L.popup({maxWidth: '300'});
+
+            
+                var html_ac866523199a44d8a83d99ac345b9e59 = $('<div id="html_ac866523199a44d8a83d99ac345b9e59" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:26+00:00511 NYC Area</div>')[0];
+                popup_6c60547a254c4f8bbfa3dacb1a5b971c.setContent(html_ac866523199a44d8a83d99ac345b9e59);
+            
+
+            marker_5e9203c2261e499fa7d84e6430ad0e51.bindPopup(popup_6c60547a254c4f8bbfa3dacb1a5b971c);
+
+            
+        
+    
+
+            var marker_70c241b630c14739906283e535d219ea = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+            var popup_397474ff0e9641ac85532b8b3dabb495 = L.popup({maxWidth: '300'});
+
+            
+                var html_c788f2800e8547b99ef42d96b6112c13 = $('<div id="html_c788f2800e8547b99ef42d96b6112c13" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_397474ff0e9641ac85532b8b3dabb495.setContent(html_c788f2800e8547b99ef42d96b6112c13);
+            
+
+            marker_70c241b630c14739906283e535d219ea.bindPopup(popup_397474ff0e9641ac85532b8b3dabb495);
+
+            
+        
+    
+
+            var marker_fb740b0e54b845eb8bbcebd319be6496 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+            var popup_799f5bfb02fb4d99882864712c286b0e = L.popup({maxWidth: '300'});
+
+            
+                var html_77006d4d4e414c5ebedd06d93f04b0fe = $('<div id="html_77006d4d4e414c5ebedd06d93f04b0fe" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_799f5bfb02fb4d99882864712c286b0e.setContent(html_77006d4d4e414c5ebedd06d93f04b0fe);
+            
+
+            marker_fb740b0e54b845eb8bbcebd319be6496.bindPopup(popup_799f5bfb02fb4d99882864712c286b0e);
+
+            
+        
+    
+
+            var marker_19f07ac427174c83ae909e2578ac87a1 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+            var popup_a1bd321719114d27b5671356bb447cf3 = L.popup({maxWidth: '300'});
+
+            
+                var html_61393eff74774d1fa34ba259dbddbdfa = $('<div id="html_61393eff74774d1fa34ba259dbddbdfa" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_a1bd321719114d27b5671356bb447cf3.setContent(html_61393eff74774d1fa34ba259dbddbdfa);
+            
+
+            marker_19f07ac427174c83ae909e2578ac87a1.bindPopup(popup_a1bd321719114d27b5671356bb447cf3);
+
+            
+        
+    
+
+            var marker_627d98bd7deb485fa5b681df40c8fcf2 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_2204c7aebd5643e9883fe3831fef53ac);
+            
+    
+            var popup_05f70b9c968b4c5cb18de512fc037750 = L.popup({maxWidth: '300'});
+
+            
+                var html_f6f9999dc94749f88669b07491add24a = $('<div id="html_f6f9999dc94749f88669b07491add24a" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_05f70b9c968b4c5cb18de512fc037750.setContent(html_f6f9999dc94749f88669b07491add24a);
+            
+
+            marker_627d98bd7deb485fa5b681df40c8fcf2.bindPopup(popup_05f70b9c968b4c5cb18de512fc037750);
+
+            
+        
+    
+            var marker_cluster_e089bea464ae481cb4a754ca0dc65844 = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_e089bea464ae481cb4a754ca0dc65844);
+            
+    
+
+            var marker_10eeb1d089614d53ada034ad5fb188cf = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_e089bea464ae481cb4a754ca0dc65844);
+            
+    
+            var popup_3ef90fd055b04c6e81bb172900a74f6b = L.popup({maxWidth: '300'});
+
+            
+                var html_fd85330ebdbd4b6290bc038044fbd054 = $('<div id="html_fd85330ebdbd4b6290bc038044fbd054" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_3ef90fd055b04c6e81bb172900a74f6b.setContent(html_fd85330ebdbd4b6290bc038044fbd054);
+            
+
+            marker_10eeb1d089614d53ada034ad5fb188cf.bindPopup(popup_3ef90fd055b04c6e81bb172900a74f6b);
+
+            
+        
+    
+
+            var marker_caf36037c29f44b8803f3c563a810a45 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_e089bea464ae481cb4a754ca0dc65844);
+            
+    
+            var popup_091ddfc6d4274108b76419a5cd2f1b7c = L.popup({maxWidth: '300'});
+
+            
+                var html_c87130cef4c6474294b7e220773d9fe9 = $('<div id="html_c87130cef4c6474294b7e220773d9fe9" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_091ddfc6d4274108b76419a5cd2f1b7c.setContent(html_c87130cef4c6474294b7e220773d9fe9);
+            
+
+            marker_caf36037c29f44b8803f3c563a810a45.bindPopup(popup_091ddfc6d4274108b76419a5cd2f1b7c);
+
+            
+        
+    
+
+            var marker_f3fea5230dda45209121caf773ac65ca = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_e089bea464ae481cb4a754ca0dc65844);
+            
+    
+            var popup_4b180d6eeb3d423d8cd46104fdebf0b3 = L.popup({maxWidth: '300'});
+
+            
+                var html_f8955b2542944838bd0987e8a7e8508e = $('<div id="html_f8955b2542944838bd0987e8a7e8508e" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:26+00:00511 New York</div>')[0];
+                popup_4b180d6eeb3d423d8cd46104fdebf0b3.setContent(html_f8955b2542944838bd0987e8a7e8508e);
+            
+
+            marker_f3fea5230dda45209121caf773ac65ca.bindPopup(popup_4b180d6eeb3d423d8cd46104fdebf0b3);
+
+            
+        
+    
+
+            var marker_8131bbaab0a74c5b83d21285ba872db9 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_e089bea464ae481cb4a754ca0dc65844);
+            
+    
+            var popup_e7d18563da6a42f891722a9d8655d84e = L.popup({maxWidth: '300'});
+
+            
+                var html_aff038c8db8943e9beeceefe94ca3619 = $('<div id="html_aff038c8db8943e9beeceefe94ca3619" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_e7d18563da6a42f891722a9d8655d84e.setContent(html_aff038c8db8943e9beeceefe94ca3619);
+            
+
+            marker_8131bbaab0a74c5b83d21285ba872db9.bindPopup(popup_e7d18563da6a42f891722a9d8655d84e);
+
+            
+        
+    
+            var marker_cluster_cb3203a4e0964a7dae210b9ba6fceb02 = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_cb3203a4e0964a7dae210b9ba6fceb02);
+            
+    
+
+            var marker_4c8b3a8df84a4618ad487c4fa64a3ca1 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_cb3203a4e0964a7dae210b9ba6fceb02);
+            
+    
+            var popup_5f1ff78970b24ffb96c2685208ef655b = L.popup({maxWidth: '300'});
+
+            
+                var html_fb4fc949f6594e638e4b1229ca38e18a = $('<div id="html_fb4fc949f6594e638e4b1229ca38e18a" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_5f1ff78970b24ffb96c2685208ef655b.setContent(html_fb4fc949f6594e638e4b1229ca38e18a);
+            
+
+            marker_4c8b3a8df84a4618ad487c4fa64a3ca1.bindPopup(popup_5f1ff78970b24ffb96c2685208ef655b);
+
+            
+        
+    
+
+            var marker_77b6b081e22f436d9e3aa336d44baf79 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_cb3203a4e0964a7dae210b9ba6fceb02);
+            
+    
+            var popup_e01e3e0de75d4b5baf5976f7c091e837 = L.popup({maxWidth: '300'});
+
+            
+                var html_464ec55fc1e74368be6bd8ef1e097b8f = $('<div id="html_464ec55fc1e74368be6bd8ef1e097b8f" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_e01e3e0de75d4b5baf5976f7c091e837.setContent(html_464ec55fc1e74368be6bd8ef1e097b8f);
+            
+
+            marker_77b6b081e22f436d9e3aa336d44baf79.bindPopup(popup_e01e3e0de75d4b5baf5976f7c091e837);
+
+            
+        
+    
+
+            var marker_1c827045548348febeaf3583010f360c = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_cb3203a4e0964a7dae210b9ba6fceb02);
+            
+    
+            var popup_04c81add2d5d4c6f9756a752c7582efc = L.popup({maxWidth: '300'});
+
+            
+                var html_4e26e4933e6c4e71842a403b34e8ddba = $('<div id="html_4e26e4933e6c4e71842a403b34e8ddba" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, kyqjfxou2017-11-20 19:16:26+00:00511 New York</div>')[0];
+                popup_04c81add2d5d4c6f9756a752c7582efc.setContent(html_4e26e4933e6c4e71842a403b34e8ddba);
+            
+
+            marker_1c827045548348febeaf3583010f360c.bindPopup(popup_04c81add2d5d4c6f9756a752c7582efc);
+
+            
+        
+    
+
+            var marker_90be221371894ba7b438a64815d0f0f2 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_cb3203a4e0964a7dae210b9ba6fceb02);
+            
+    
+            var popup_792d16198f0446d2bc4d095ae772f40d = L.popup({maxWidth: '300'});
+
+            
+                var html_96d808cc18064107916b8406721c1aff = $('<div id="html_96d808cc18064107916b8406721c1aff" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, kyqjfxou2017-11-20 19:16:25+00:00511 New York</div>')[0];
+                popup_792d16198f0446d2bc4d095ae772f40d.setContent(html_96d808cc18064107916b8406721c1aff);
+            
+
+            marker_90be221371894ba7b438a64815d0f0f2.bindPopup(popup_792d16198f0446d2bc4d095ae772f40d);
+
+            
+        
+    
+            var marker_cluster_0f5c06f93be943df9228fb11f6bf4eea = L.markerClusterGroup({
+                
+            });
+            map_f9832d4ff2104651a8c6d3253c652deb.addLayer(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+
+            var marker_f5566b77136a4828a39e4d29505e9400 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+            var popup_1a6922939d2a40079a6017107714a7fa = L.popup({maxWidth: '300'});
+
+            
+                var html_0613fc8e90a7422ab0ceba26f31f7938 = $('<div id="html_0613fc8e90a7422ab0ceba26f31f7938" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_1a6922939d2a40079a6017107714a7fa.setContent(html_0613fc8e90a7422ab0ceba26f31f7938);
+            
+
+            marker_f5566b77136a4828a39e4d29505e9400.bindPopup(popup_1a6922939d2a40079a6017107714a7fa);
+
+            
+        
+    
+
+            var marker_fe7056465d71465792af872b1fa6e173 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+            var popup_dc95df874ab2477bb9c6d2ce29932e71 = L.popup({maxWidth: '300'});
+
+            
+                var html_98b8e6634a8f451e957290707da178fc = $('<div id="html_98b8e6634a8f451e957290707da178fc" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:26+00:00511 NYC Area</div>')[0];
+                popup_dc95df874ab2477bb9c6d2ce29932e71.setContent(html_98b8e6634a8f451e957290707da178fc);
+            
+
+            marker_fe7056465d71465792af872b1fa6e173.bindPopup(popup_dc95df874ab2477bb9c6d2ce29932e71);
+
+            
+        
+    
+
+            var marker_6513923a03734aa59c4d5974cc612477 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+            var popup_81a01ce2b3c54d6991545205b596ef9a = L.popup({maxWidth: '300'});
+
+            
+                var html_8f0c6f47e6f744f1a3226bb6f12f08c9 = $('<div id="html_8f0c6f47e6f744f1a3226bb6f12f08c9" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_81a01ce2b3c54d6991545205b596ef9a.setContent(html_8f0c6f47e6f744f1a3226bb6f12f08c9);
+            
+
+            marker_6513923a03734aa59c4d5974cc612477.bindPopup(popup_81a01ce2b3c54d6991545205b596ef9a);
+
+            
+        
+    
+
+            var marker_a682d7becc1341bdb9b09a4539587b66 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+            var popup_286123b260a1450083522eb2fb719abc = L.popup({maxWidth: '300'});
+
+            
+                var html_c7ab2bd55e414da5aa3c62f2bf27a71d = $('<div id="html_c7ab2bd55e414da5aa3c62f2bf27a71d" style="width: 100.0%; height: 100.0%;">incident, line, directions, nostrand, avenue, tkvixfyb2017-11-20 19:16:25+00:00511 NYC Area</div>')[0];
+                popup_286123b260a1450083522eb2fb719abc.setContent(html_c7ab2bd55e414da5aa3c62f2bf27a71d);
+            
+
+            marker_a682d7becc1341bdb9b09a4539587b66.bindPopup(popup_286123b260a1450083522eb2fb719abc);
+
+            
+        
+    
+
+            var marker_1ecd13bcd1b74d879438eba0108c383c = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+            var popup_d6261244db9f434f9888a11f153abab8 = L.popup({maxWidth: '300'});
+
+            
+                var html_d49af49af83d4741a74ea782100dd128 = $('<div id="html_d49af49af83d4741a74ea782100dd128" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_d6261244db9f434f9888a11f153abab8.setContent(html_d49af49af83d4741a74ea782100dd128);
+            
+
+            marker_1ecd13bcd1b74d879438eba0108c383c.bindPopup(popup_d6261244db9f434f9888a11f153abab8);
+
+            
+        
+    
+
+            var marker_c6f7db72b24d4fc49824ee37ce22be42 = L.marker(
+                [40.640155,-73.948481],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(marker_cluster_0f5c06f93be943df9228fb11f6bf4eea);
+            
+    
+            var popup_cd7a0d7ff9c6441ca67bcf609e369ad7 = L.popup({maxWidth: '300'});
+
+            
+                var html_6661559b0eb4448f83026f6f09de1530 = $('<div id="html_6661559b0eb4448f83026f6f09de1530" style="width: 100.0%; height: 100.0%;">incident, line, nostrand, avenue, jquiomt2017-11-20 19:16:25+00:00511NY 456 Lines</div>')[0];
+                popup_cd7a0d7ff9c6441ca67bcf609e369ad7.setContent(html_6661559b0eb4448f83026f6f09de1530);
+            
+
+            marker_c6f7db72b24d4fc49824ee37ce22be42.bindPopup(popup_cd7a0d7ff9c6441ca67bcf609e369ad7);
+
+            
+        
+</script>
