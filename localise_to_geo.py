@@ -74,12 +74,12 @@ exact_dict = {w: '' for w in exact_flatten}
 # enumerate without duplicates
 exact_enum = {w: idx for idx, w in enumerate(exact_dict)}
 
-exact_matrix = np.zeros((len(exact_values + bbox_values), len(exact_enum)), dtype=int)
+exact_matrix = np.zeros((len(exact_values + bbox_values), len(exact_enum)), dtype=bool)
 d = dict()
 for idx, tweet in enumerate(exact_values + bbox_values):
     d[tweet.id] = idx
     for w in tweet.text:
-        exact_matrix[idx, exact_enum[w]] += 1
+        exact_matrix[idx, exact_enum[w]] = True
 
 exacts = localise_to_geo(bbox_values, exact_values, threshold=0.9, alpha=0.5, conj_m=exact_matrix, d=d)
 print(len(exacts))
