@@ -87,4 +87,30 @@ for idx, tweet in enumerate(exact_values + bbox_values):
 print("matrix is created. size is %d on %d"%(exact_matrix.shape))
 
 exacts = localise_to_geo(bbox_values, exact_values, threshold=10.0, alpha=0.5, conj_m=exact_matrix, d=d)
+print("inserting values into documents...")
+
+client = MongoClient()
+db = client.twitterdb
+
+for tweet in tqdm(exacts + exact_values):
+    raw = {
+        "_id": tweet.id,
+        "coordinates": {
+            "coordinates": tweet.coordinates
+        },
+        "place": {
+            "name": tweet.place,
+            "bounding_box": {
+                "coordinates": [tweet.bounding_box]
+            }
+        },
+        "lang": "en",
+        "in_reply_to_user_id": None,
+        "in_reply_to_status_id": None,
+        "retweeted": False,
+        "created_at": tweet.time,
+        "text": tweet.text
+    }
+    db.localised_geo_tweets.insertOne(raw)
+
 print(len(exacts))
