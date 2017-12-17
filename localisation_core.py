@@ -114,7 +114,7 @@ def distanceKm(p1,p2):
 
     return R * c
 
-def geoTesting(exact_values, number, threshold, conjunction_matrix, d):
+def geoTesting(exact_values, number, threshold, alpha, conjunction_matrix, d):
     amount_of_localized = 0
     amount_of_correct = 0
     print("Quality test is running currently...")
@@ -123,7 +123,7 @@ def geoTesting(exact_values, number, threshold, conjunction_matrix, d):
 
         old_coord = test.coordinates
 
-        result = localise_to_geo([test], a, threshold, conjunction_matrix, d)
+        result = localise_to_geo([test], a, threshold, alpha, conjunction_matrix, d)
         if (len(result) > 0):
             amount_of_localized+=1
             dist = distanceKm (old_coord, result[0].coordinates)
@@ -164,9 +164,9 @@ def localise_to_bbox(unloc, loc, threshold, alpha, conj_m, d):
             points += [(x, tdelta + 0.0001, idx[1] + 0.0001)
                        for x in bbox.bounding_box]
             boxes.append(bbox.bounding_box)
-        x0 = np.sum([x[0][0] * (1 / x[1] + 1 / x[2]) for x in points])
-        y0 = np.sum([x[0][1] * (1 / x[1] + 1 / x[2]) for x in points])
-        m0 = np.sum([2*alpha / x[1] + 2*(1 - alpha) / x[2] for x in points])
+        x0 = np.sum([x[0][0] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
+        y0 = np.sum([x[0][1] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
+        m0 = np.sum([alpha / x[1] + (1 - alpha) / x[2] for x in points])
         coord_res = Point([x0 / m0, y0 / m0])
         for box in boxes:
             pol = Polygon(box)
