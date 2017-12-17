@@ -211,7 +211,7 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
             for m in cs:
                 if m[1] < threshold:
                     print("less than threshold %f"%m[1])
-                    #cs2.append([m[0][1], m[1]])
+                    cs2.append([m[0][1], m[1]])
                 else:
                     print("more than threshold %f"%m[1])
 
@@ -222,12 +222,12 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
                 tdelta = (exact.time - bbox.time).total_seconds() / timedelta(minutes=1).total_seconds()
                 # another threshold by time. Not more than a week
                 if tdelta > 60 * 24 * 7: continue
-                points.append((exact.coordinates, 1-tdelta/(60 * 24 * 7), idx[1] + 0.0001))
+                points.append((exact.coordinates, 1-tdelta/(60 * 24 * 7), 1-idx[1]/10.0))
             if len(points) < 3: continue
             print(points)
-            x0 = np.sum([x[0][0] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
-            y0 = np.sum([x[0][1] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
-            m0 = np.sum([alpha * x[1] + (1 - alpha) / x[2] for x in points])
+            x0 = np.sum([x[0][0] * (alpha * x[1] + (1 - alpha) * x[2]) for x in points])
+            y0 = np.sum([x[0][1] * (alpha * x[1] + (1 - alpha) * x[2]) for x in points])
+            m0 = np.sum([alpha * x[1] + (1 - alpha) * x[2] for x in points])
             bbox.coordinates = [x0 / m0, y0 / m0]
             result.append(bbox)
 

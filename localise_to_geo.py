@@ -7,13 +7,13 @@ def getGeoFromDatabase(place):
 
     client = MongoClient()
     db = client.twitterdb
-    source = db.stream_geo_coordinatesNY
+    source = db.final_stream_geo_coordinatesNY
     if place.lower() == "gla":
-        source = db.stream_geo_coordinatesGLA
+        source = db.final_stream_geo_coordinatesGLA
     if place.lower() == "lo":
-        source = db.stream_geo_coordinatesLO
+        source = db.final_stream_geo_coordinatesLO
     if place.lower() == "chi":
-        source = db.stream_geo_coordinatesCHI
+        source = db.final_stream_geo_coordinatesCHI
 
     return [Tweet(line["_id"],
                          line["text"],
@@ -34,13 +34,13 @@ def getBboxFromDatabase(place):
 
     client = MongoClient()
     db = client.twitterdb
-    source = db.stream_boundingBoxNY
+    source = db.final_stream_boundingBoxNY
     if place.lower() == "gla":
-        source = db.stream_boundingBoxGLA
+        source = db.final_stream_boundingBoxGLA
     if place.lower() == "lo":
-        source = db.stream_boundingBoxLO
+        source = db.final_stream_boundingBoxLO
     if place.lower() == "chi":
-        source = db.stream_boundingBoxCHI
+        source = db.final_stream_boundingBoxCHI
 
     return [Tweet(line["_id"],
                          line["text"],
@@ -86,5 +86,5 @@ for idx, tweet in enumerate(exact_values + bbox_values):
 
 print("matrix is created. size is %d on %d"%(exact_matrix.shape))
 
-exacts = localise_to_geo(bbox_values, exact_values, threshold=0.9, alpha=0.5, conj_m=exact_matrix, d=d)
+exacts = localise_to_geo(bbox_values, exact_values, threshold=10.0, alpha=0.5, conj_m=exact_matrix, d=d)
 print(len(exacts))
