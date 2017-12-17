@@ -92,6 +92,15 @@ print("inserting values into documents...")
 client = MongoClient()
 db = client.twitterdb
 
+
+source = db.localised_geo_tweetsNY
+if sys.argv[1].lower() == "lo":
+    source = db.localised_geo_tweetsLO
+if sys.argv[1].lower() == "gla":
+    source = db.localised_geo_tweetsGLA
+if sys.argv[1].lower() == "chi":
+    source = db.localised_geo_tweetsCHI
+
 for tweet in tqdm(exacts + exact_values):
     raw = {
         "_id": tweet.id,
@@ -111,6 +120,7 @@ for tweet in tqdm(exacts + exact_values):
         "created_at": tweet.time,
         "text": tweet.text
     }
-    db.localised_geo_tweets.insertOne(raw)
+
+    source.insertOne(raw)
 
 print(len(exacts))
