@@ -202,7 +202,7 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
         for tweet in geo_dict[place]:
             lsh.index(np.array(conj_m[d[tweet.id]], dtype=int), extra_data=tweet.id)
             if tweet.coordinates == None:
-                print("WE GOT NONE!!! THIS IS SPARTA!")
+                print(tweet.id)
             coord_dict[tweet.id] = tweet
         print("index for %s is ready. Starting localisation"%place)
         for bbox in tqdm(bbox_dict[place]):
