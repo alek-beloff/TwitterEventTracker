@@ -177,14 +177,10 @@ def localise_to_bbox(unloc, loc, threshold, alpha, conj_m, d):
     return new_col
 
 def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
-
-    places_dict = {exact.place: [] for exact in exact_values + bbox_values}
-    print("created dictionary of places")
-
     result = []
 
-    geo_dict = places_dict.copy()
-    bbox_dict = places_dict.copy()
+    geo_dict = {exact.place: [] for exact in exact_values + bbox_values}
+    bbox_dict = {exact.place: [] for exact in exact_values + bbox_values}
 
     print("now put tweets into place buckets")
     for value in tqdm(exact_values):
@@ -192,11 +188,13 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
     for value in tqdm(bbox_values):
         bbox_dict[value.place].append(value)
     print("tweets have been allocated")
+    print(len(geo_dict["North Massapequa"]))
+    print(len(bbox_dict["North Massapequa"]))
 
     coord_dict = {}
 
     print("creating indexes...")
-    for place in tqdm(places_dict):
+    for place in tqdm(bbox_dict):
         print("work with place %s"%place)
         lsh = lshash.LSHash(6, conj_m.shape[1])
         for tweet in geo_dict[place]:
