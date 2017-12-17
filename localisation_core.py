@@ -11,10 +11,11 @@ from lshash import lshash
 from scipy.optimize import minimize
 
 def RemoveStopWords(stopWords, text):
+    stopWords.add('https')
     return [w for w in text if w not in stopWords and len(w)>2]
 
 class Tweet:
-    def __init__(self, id, text, time, stopWords, bounding_box = None, coordinates = None, place = None):
+    def __init__(self, id, text, time, stopWords, user = None, bounding_box = None, coordinates = None, place = None):
         self.id = id
         self.text = RemoveStopWords(stopWords,
                                     list(filter(None,re.split('[^a-z]',text.lower()))))
@@ -25,6 +26,7 @@ class Tweet:
             self.bounding_box = bounding_box
         self.coordinates = coordinates
         self.place = place
+        self.user = user
 
 def getUnloc():
     stopWords = set(stopwords.words('english'))
@@ -64,6 +66,7 @@ def getGeo():
                          json.loads(line)["text"],
                          json.loads(line)["created_at"],
                          stopWords,
+                         json.loads(line)["user"]["name"],
                          bounding_box=json.loads(line)["place"]["bounding_box"]["coordinates"][0],
                          coordinates=json.loads(line)["coordinates"]["coordinates"],
                          place=json.loads(line)["place"]["name"])
@@ -173,7 +176,7 @@ def localise_to_bbox(unloc, loc, threshold, alpha, conj_m, d):
                 break
     return new_col
 
-def localise_to_geo(bbox_values,exact_values,threshold,conj_m,d):
+def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
 
     places_dict = {exact.place: [] for exact in exact_values + bbox_values}
 
@@ -213,9 +216,9 @@ def localise_to_geo(bbox_values,exact_values,threshold,conj_m,d):
 
             points.append((exact.coordinates, tdelta + 0.0001, idx[1] + 0.0001))
         if len(points) < 3: continue
-        x0 = np.sum([x[0][0] * (1 / x[1] + 1 / x[2]) for x in points])
-        y0 = np.sum([x[0][1] * (1 / x[1] + 1 / x[2]) for x in points])
-        m0 = np.sum([1 / x[1] + 1 / x[2] for x in points])
+        x0 = np.sum([x[0][0] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
+        y0 = np.sum([x[0][1] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
+        m0 = np.sum([alpha / x[1] + (1-alpha) / x[2] for x in points])
         bbox.coordinates = [x0 / m0, y0 / m0]
         result.append(bbox)
     return result
