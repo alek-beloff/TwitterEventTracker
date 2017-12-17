@@ -207,7 +207,7 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
             inside_tweets = places_dict[bbox.place]
             if len(inside_tweets) < 3: continue
             cs = lsh.query(conj_m[d[bbox.id]], num_results=10, distance_func='cosine')
-
+            print(cs)
             cs2 = []
             for m in cs:
                 if m[1] < threshold:
@@ -220,7 +220,6 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
                 tdelta = (exact.time - bbox.time).total_seconds() / timedelta(minutes=1).total_seconds()
                 # another threshold by time. Not more than a week
                 if tdelta > 60 * 24 * 7: continue
-                print(idx[1])
                 points.append((exact.coordinates, 1-tdelta/(60 * 24 * 7), idx[1] + 0.0001))
             if len(points) < 3: continue
             print(points)
