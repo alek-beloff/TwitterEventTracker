@@ -206,7 +206,7 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
         for bbox in tqdm(bbox_dict[place]):
             inside_tweets = places_dict[bbox.place]
             if len(inside_tweets) < 3: continue
-            cs = lsh.query(np.array(conj_m[d[bbox.id]],dtype=int), num_results=10, distance_func='cosine')
+            cs = lsh.query(np.array(conj_m[d[bbox.id]],dtype=int), num_results=10, distance_func='euclidean')
             cs2 = []
             for m in cs:
                 if m[1] < threshold:
