@@ -200,13 +200,13 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
         print("work with place %s"%place)
         lsh = lshash.LSHash(6, conj_m.shape[1])
         for tweet in geo_dict[place]:
-            lsh.index(conj_m[d[tweet.id]], extra_data=tweet.id)
+            lsh.index(np.array(conj_m[d[tweet.id]], dtype=int), extra_data=tweet.id)
             coord_dict[tweet.id] = tweet
         print("index for %s is ready. Starting localisation"%place)
         for bbox in tqdm(bbox_dict[place]):
             inside_tweets = places_dict[bbox.place]
             if len(inside_tweets) < 3: continue
-            cs = lsh.query(conj_m[d[bbox.id]], num_results=10, distance_func='cosine')
+            cs = lsh.query(np.array(conj_m[d[bbox.id]],dtype=int), num_results=10, distance_func='cosine')
             cs2 = []
             for m in cs:
                 if m[1] < threshold:
