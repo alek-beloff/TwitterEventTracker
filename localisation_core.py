@@ -183,47 +183,50 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
 
     result = []
 
+    geo_dict = places_dict.copy()
+    bbox_dict = places_dict.copy()
+
     print("now put tweets into place buckets")
     for value in tqdm(exact_values):
-        places_dict[value.place].append(value)
+        geo_dict[value.place].append(value)
+    for value in tqdm(bbox_values):
+        bbox_dict[value.place].append(value)
     print("tweets have been allocated")
 
-    lsh = {}
     coord_dict = {}
-
-    for key in places_dict:
-        lsh[key] = lshash.LSHash(6, conj_m.shape[1])
 
     print("creating indexes...")
     for place in tqdm(places_dict):
-        for tweet in places_dict[place]:
-            lsh[place].index(conj_m[d[tweet.id]], extra_data=tweet.id)
+        print("work with place %s"%place)
+        lsh = lshash.LSHash(6, conj_m.shape[1])
+        for tweet in geo_dict[place]:
+            lsh.index(conj_m[d[tweet.id]], extra_data=tweet.id)
             coord_dict[tweet.id] = tweet
+        print("index for %s is ready. Starting localisation"%place)
+        for bbox in tqdm(bbox_dict[place]):
+            inside_tweets = places_dict[bbox.place]
+            if len(inside_tweets) < 3: continue
+            cs = lsh.query(conj_m[d[bbox.id]], num_results=10, distance_func='cosine')
 
-    print("start localisation")
-    for bbox in tqdm(bbox_values):
-        inside_tweets = places_dict[bbox.place]
-        if len(inside_tweets) < 3: continue
-        cs = lsh[bbox.place].query(conj_m[d[bbox.id]], num_results=10, distance_func='cosine')
+            cs2 = []
+            for m in cs:
+                if m[1] < threshold:
+                    cs2.append([m[0][1], m[1]])
 
-        cs2 = []
-        for m in cs:
-            if m[1] < threshold:
-                cs2.append([m[0][1], m[1]])
+            points = []
+            for idx in cs2:
+                exact = coord_dict[idx[0]]
 
-        points = []
-        for idx in cs2:
-            exact = coord_dict[idx[0]]
+                tdelta = (exact.time - bbox.time).total_seconds() / timedelta(minutes=1).total_seconds()
+                # another threshold by time. Not more than a week
+                if tdelta > 60 * 24 * 7: continue
 
-            tdelta = (exact.time - bbox.time).total_seconds() / timedelta(minutes=1).total_seconds()
-            # another threshold by time. Not more than a week
-            if tdelta > 60 * 24 * 7: continue
+                points.append((exact.coordinates, tdelta + 0.0001, idx[1] + 0.0001))
+            if len(points) < 3: continue
+            x0 = np.sum([x[0][0] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
+            y0 = np.sum([x[0][1] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
+            m0 = np.sum([alpha / x[1] + (1 - alpha) / x[2] for x in points])
+            bbox.coordinates = [x0 / m0, y0 / m0]
+            result.append(bbox)
 
-            points.append((exact.coordinates, tdelta + 0.0001, idx[1] + 0.0001))
-        if len(points) < 3: continue
-        x0 = np.sum([x[0][0] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
-        y0 = np.sum([x[0][1] * (alpha / x[1] + (1 - alpha) / x[2]) for x in points])
-        m0 = np.sum([alpha / x[1] + (1-alpha) / x[2] for x in points])
-        bbox.coordinates = [x0 / m0, y0 / m0]
-        result.append(bbox)
     return result

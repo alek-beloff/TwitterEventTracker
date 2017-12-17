@@ -61,7 +61,10 @@ if len(sys.argv) != 2:
 if sys.argv[1].lower() not in ['ny', 'lo', 'chi', 'gla'] :
     exit('argument is incorrect')
 
+print("reading bbox tweets...")
 bbox_values = getBboxFromDatabase(sys.argv[1])
+
+print("reading geo tweets...")
 exact_values = getGeoFromDatabase(sys.argv[1])
 
 print("we have %d bbox tweets to be localised using %d geo tweets"%(len(bbox_values), len(exact_values)))
