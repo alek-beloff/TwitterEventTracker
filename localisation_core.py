@@ -207,11 +207,13 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
             inside_tweets = places_dict[bbox.place]
             if len(inside_tweets) < 3: continue
             cs = lsh.query(conj_m[d[bbox.id]], num_results=10, distance_func='cosine')
-            print(cs)
             cs2 = []
             for m in cs:
                 if m[1] < threshold:
+                    print("less than threshold %f"%m[1])
                     cs2.append([m[0][1], m[1]])
+                else:
+                    print("more than threshold %f"%m[1])
 
             points = []
             for idx in cs2:
