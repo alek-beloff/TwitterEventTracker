@@ -81,5 +81,7 @@ for idx, tweet in enumerate(exact_values + bbox_values):
     for w in tweet.text:
         exact_matrix[idx, exact_enum[w]] = True
 
+print("matrix is created. size is %d on %d"%(exact_matrix.shape))
+
 exacts = localise_to_geo(bbox_values, exact_values, threshold=0.9, alpha=0.5, conj_m=exact_matrix, d=d)
 print(len(exacts))
