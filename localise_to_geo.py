@@ -23,7 +23,7 @@ def getGeoFromDatabase(place):
                          bounding_box=line["place"]["bounding_box"]["coordinates"][0],
                          place=line["place"]["name"])
                    for line
-                   in source.find()
+                   in tqdm(source.find())
                    if line["lang"] == "en"
                    and line["in_reply_to_user_id"] == None
                    and line["in_reply_to_status_id"] == None
@@ -49,7 +49,7 @@ def getBboxFromDatabase(place):
                          bounding_box=line["place"]["bounding_box"]["coordinates"][0],
                          place=line["place"]["name"])
                    for line
-                   in source.find()
+                   in tqdm(source.find())
                    if line["lang"] == "en"
                    and line["in_reply_to_user_id"] == None
                    and line["in_reply_to_status_id"] == None
