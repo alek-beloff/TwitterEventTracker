@@ -188,8 +188,6 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
     for value in tqdm(bbox_values):
         bbox_dict[value.place].append(value)
     print("tweets have been allocated")
-    print(len(geo_dict["North Massapequa"]))
-    print(len(bbox_dict["North Massapequa"]))
 
     coord_dict = {}
 
@@ -221,7 +219,6 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
                 if tdelta > 60 * 24 * 7: continue
                 points.append((exact.coordinates, 1-tdelta/(60 * 24 * 7), 1-idx[1]/10.0))
             if len(points) < 3: continue
-            print(points)
             x0 = np.sum([x[0][0] * (alpha * x[1] + (1 - alpha) * x[2]) for x in points])
             y0 = np.sum([x[0][1] * (alpha * x[1] + (1 - alpha) * x[2]) for x in points])
             m0 = np.sum([alpha * x[1] + (1 - alpha) * x[2] for x in points])
