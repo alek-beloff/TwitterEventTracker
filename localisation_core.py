@@ -211,7 +211,7 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
             for m in cs:
                 if m[1] < threshold:
                     print("less than threshold %f"%m[1])
-                    cs2.append([m[0][1], m[1]])
+                    #cs2.append([m[0][1], m[1]])
                 else:
                     print("more than threshold %f"%m[1])
 
