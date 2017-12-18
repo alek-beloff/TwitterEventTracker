@@ -121,6 +121,6 @@ for tweet in tqdm(exacts + exact_values):
         "text": tweet.text
     }
 
-    source.insertOne(raw)
+    source.insert(raw)
 
 print(len(exacts))
