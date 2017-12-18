@@ -9,6 +9,7 @@ import json
 from nltk.corpus import stopwords
 from lshash import lshash
 from scipy.optimize import minimize
+from pymongo import MongoClient
 
 def RemoveStopWords(stopWords, text):
     stopWords.add('https')
@@ -76,6 +77,34 @@ def getGeo():
                    and json.loads(line)["in_reply_to_user_id"] == None
                    and json.loads(line)["in_reply_to_status_id"] == None
                    and json.loads(line)["retweeted"] == False]
+
+def getLocalisedGeoFromDatabase(place):
+    stopWords = set(stopwords.words('english'))
+
+    client = MongoClient()
+    db = client.twitterdb
+    source = db.localised_geo_tweetsNY
+    if place.lower() == "gla":
+        source = db.localised_geo_tweetsGLA
+    if place.lower() == "lo":
+        source = db.localised_geo_tweetsLO
+    if place.lower() == "chi":
+        source = db.localised_geo_tweetsCHI
+
+    return [Tweet(line["_id"],
+                         line["text"],
+                         line["created_at"],
+                         stopWords,
+                         coordinates=line["coordinates"]["coordinates"],
+                         bounding_box=line["place"]["bounding_box"]["coordinates"][0],
+                         place=line["place"]["name"])
+                   for line
+                   in tqdm(source.find())
+                   if line["lang"] == "en"
+                   and line["in_reply_to_user_id"] == None
+                   and line["in_reply_to_status_id"] == None
+                   and line["retweeted"] == False
+                   and line["place"]["name"] != "Scotland"]
 
 def qualityTesting(bbox_values, number, threshold, alpha, conjunction_matrix, d):
     amount_of_localized = 0
