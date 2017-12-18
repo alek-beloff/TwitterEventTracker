@@ -224,6 +224,5 @@ def localise_to_geo(bbox_values,exact_values,threshold,alpha,conj_m,d):
             m0 = np.sum([alpha * x[1] + (1 - alpha) * x[2] for x in points])
             bbox.coordinates = [x0 / m0, y0 / m0]
             result.append(bbox)
-        break
 
     return result
