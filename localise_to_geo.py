@@ -120,7 +120,9 @@ for tweet in tqdm(exacts + exact_values):
         "created_at": tweet.time,
         "text": tweet.text
     }
-
-    source.insert(raw)
+    try:
+        source.insert(raw)
+    except:
+        continue
 
 print(len(exacts))
